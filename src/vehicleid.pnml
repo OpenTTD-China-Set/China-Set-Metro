@@ -1,5 +1,4 @@
-item (FEAT_TRAINS, chengdu_car_b, 10001) {}
-item (FEAT_TRAINS, chengdu_car_a, 10002) {}
+item (FEAT_TRAINS, chengdu_car_ab, 10001) {}
 item (FEAT_TRAINS, chengdu1, 10010) {}
 item (FEAT_TRAINS, chengdu2, 10020) {}
 item (FEAT_TRAINS, chengdu3, 10030) {}

@@ -21,14 +21,11 @@ switch (FEAT_TRAINS, SELF, switch_length_2_7_2, position_in_articulated_veh % 3)
 
 //id对应下边可以搭载的车厢
 
-switch (FEAT_TRAINS, SELF, B, vehicle_type_id) {
+switch (FEAT_TRAINS, SELF, AB, vehicle_type_id) {
     10001: return CB_RESULT_ATTACH_ALLOW_IF_RAILTYPES;
     return CB_RESULT_ATTACH_DISALLOW;
 }
-switch (FEAT_TRAINS, SELF, A, vehicle_type_id) {
-    10002: return CB_RESULT_ATTACH_ALLOW_IF_RAILTYPES;
-    return CB_RESULT_ATTACH_DISALLOW;
-}
+
 
 //运行费用相关
 switch (FEAT_TRAINS, SELF, runningcostfactor, (1 + current_speed * 5 / max_speed)) {return;}

@@ -18,7 +18,7 @@ STR_RELDEC_LOW:{BLACK}Reliability decay speed: {GREEN}Low （{COMMA}）
 
 
 
-STR_CHENGDU_DITIE_SERIES:{BLACK}Chengdu subway car
+
 STR_DESC_7:	{STRING}{}{STRING}{}{STRING}{}{STRING}{}{STRING}{}{STRING}
 STR_DESC_6:	{STRING}{}{STRING}{}{STRING}{}{STRING}{}{STRING}{}{STRING}{}{STRING}
 STR_DESC_5:	{STRING}{}{STRING}{}{STRING}{}{STRING}{}{STRING}
@@ -26,15 +26,13 @@ STR_DESC_4:	{STRING}{}{STRING}{}{STRING}{}{STRING}
 STR_DESC_3:	{STRING}{}{STRING}{}{STRING}
 STR_DESC_2:	{STRING}{}{STRING}
 
-STR_A_WAGON:{RED}It can only be equipped with A-type cars and can be used in a maximum of 6 cars
-STR_LINEB_CAR:{YELLOW}Chengdu Metro Line 1, Line 2, Line 3, Line 4 train carriages
-STR_LINEA_CAR:{YELLOW}Chengdu Metro Line 5, Line 6, Line 7, Line 8, Line 9, Line 10, Line 17, Line 18, Line 19, Ziyang Line train carriages
+STR_B_WAGON:{RED}It can only be equipped with A-type cars and can be used in a maximum of 6 cars
+STR_A_WAGON:{RED}It can only be equipped with A-type cars and can be used in a maximum of 8 cars
+STR_LINEB_CAR:{YELLOW}Chengdu Metro Line 1, Line 2, Line 3, Line 4, Line 5, Line 6, Line 7, Line 8, Line 9, Line 10, Line 17, Line 18, Line 19, Ziyang Line train carriagestrain carriages
 
-STR_B_WAGON:{RED}It can only be equipped with B-type cars and can be used in a maximum of 6 cars
 
-STR_ATTACH_ALL_CHENGDU_CAR:  CHENGDU_SUBWAY
-STR_NAME_CHENGDU_A:  Type A subway car
-STR_NAME_CHENGDU_CAR:  Type B subway car
+STR_ATTACH_ALL_CHENGDU_CAR: CHENGDU_SUBWAY
+STR_NAME_CHENGDU_CAR:  Chengdu subway car
 
 STR_NAME_CHENGDU1:   Chengdu Metro Line 1 train
 STR_NAME_CHENGDU2:	 Chengdu Metro Line 2 train
