@@ -4,4 +4,5 @@ item (FEAT_TRAINS, chengdu1, 10010) {}
 item (FEAT_TRAINS, chengdu2, 10020) {}
 item (FEAT_TRAINS, chengdu3, 10030) {}
 item (FEAT_TRAINS, chengdu4, 10040) {}
+item (FEAT_TRAINS, chengdu5, 10050) {}
 item (FEAT_TRAINS, chengdu7, 10070) {}

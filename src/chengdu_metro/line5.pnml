@@ -1,0 +1,186 @@
+//7号线
+//折叠列表
+switch (FEAT_TRAINS, SELF, switch_chengdu5_name, getbits(extra_callback_info1, 0, 8) == 0x20? getbits(extra_callback_info1, 8, 8) : 0xFFFF) {
+    0: return string(STR_ATTACH_ALL_CHENGDU_CAR);
+    return CB_RESULT_NO_TEXT;
+}
+
+spriteset (spriteset_chengdu5_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_purchase ("chengdu_metro", "chengdu5-cr")
+}
+// Vehicle
+spriteset (spriteset_chengdu5_c_front, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_standard ("chengdu_metro", "chengdu5-cr")
+}
+spriteset (spriteset_chengdu5_p, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_standard ("chengdu_metro", "chengdu5-pr")
+}
+spriteset (spriteset_chengdu5_m, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_standard ("chengdu_metro", "chengdu5-m")
+}
+spriteset (spriteset_chengdu5_pr, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_standard ("chengdu_metro", "chengdu5-p")
+}
+spriteset (spriteset_chengdu5_cab, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_standard ("chengdu_metro", "chengdu5-c")
+}
+switch (FEAT_TRAINS, SELF, switch_chengdu5_articulated_part, extra_callback_info1) {
+    1..2: return chengdu5;
+    return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+
+
+
+//编组
+
+
+
+switch (FEAT_TRAINS, SELF, switch_chengdu519_graphics, position_in_articulated_veh % 3) {
+    1: spriteset_chengdu5_m;
+    empty_sprites;
+}
+switch (FEAT_TRAINS, SELF, switch_chengdu521_graphics,position_in_consist_from_end){
+    4: spriteset_chengdu5_pr;
+    switch_chengdu519_graphics;
+}
+switch (FEAT_TRAINS, SELF, switch_chengdu520_graphics,position_in_consist){
+    4: spriteset_chengdu5_p;
+    10: spriteset_chengdu5_p;
+    switch_chengdu521_graphics;
+}
+switch (FEAT_TRAINS, SELF, switch_chengdu540_graphics,position_in_consist_from_end){
+    1: spriteset_chengdu5_cab;
+    switch_chengdu520_graphics;
+}
+switch (FEAT_TRAINS, SELF, switch_chengdu5_graphics,position_in_consist){
+    1: spriteset_chengdu5_c_front;
+    switch_chengdu540_graphics;
+}
+
+/*
+switch (FEAT_TRAINS, SELF, switch_chengdu541_graphics,position_in_consist){
+    4: spriteset_chengdu5_p;  
+    7: spriteset_chengdu5_m;
+    10:spriteset_chengdu5_m;
+    13:spriteset_chengdu5_pr;
+    empty_sprites;           // 默认图形集（空车厢）
+}
+switch (FEAT_TRAINS, SELF, switch_chengdu540_graphics,position_in_consist){
+    1: spriteset_chengdu5_c_front;
+    switch_chengdu541_graphics;
+}
+switch (FEAT_TRAINS, SELF, switch_chengdu536_graphics,position_in_consist_from_end){
+    1: spriteset_chengdu5_cab;
+    switch_chengdu540_graphics;
+}
+switch (FEAT_TRAINS, SELF, switch_chengdu537_graphics,position_in_consist){
+    1: spriteset_chengdu5_c_front;
+    4: spriteset_chengdu5_cab;
+    empty_sprites;
+}
+//限制编组长度
+switch (FEAT_TRAINS, SELF, switch_chengdu5_graphics, num_vehs_in_consist) {
+    0..6: switch_chengdu537_graphics;
+    6..18: switch_chengdu536_graphics;
+}
+*/
+//载客
+
+switch (FEAT_TRAINS, SELF, switch_chengdu540_capacity,position_in_consist_from_end){
+    1: return 280;
+    return 300;
+}
+switch (FEAT_TRAINS, SELF, switch_chengdu520_capacity,position_in_consist){
+    1: return 280;
+    switch_chengdu540_capacity;
+}
+switch (FEAT_TRAINS, SELF, switch_chengdu5_capacity, position_in_articulated_veh % 3) {
+    1: switch_chengdu520_capacity;
+    return 0;
+}
+
+switch (FEAT_TRAINS, SELF, switch_chengdu5_traction, vehicle_is_potentially_powered) {
+    1: return int(0.171*255);
+    return 0;
+}
+
+
+//关于二号线列车
+item (FEAT_TRAINS, chengdu5) {
+    property {
+        // Menu
+        name:                           string(STR_NAME_CHENGDU5);
+        sprite_id:                      SPRITE_ID_NEW_TRAIN;
+        misc_flags:                     bitmask(TRAIN_FLAG_AUTOREFIT, TRAIN_FLAG_MU);
+        engine_class:                   ENGINE_CLASS_ELECTRIC;
+        variant_group:					10010;
+       
+        
+        // Availability
+        climates_available:             ALL_CLIMATES;
+        introduction_date:              date(2019,12,27);
+        model_life:                     60;
+        retire_early:                   35;
+        vehicle_life:                   35;
+        track_type:                     SACA;
+
+        // Cargo
+        refittable_cargo_classes:       bitmask(CC_PASSENGERS);
+        non_refittable_cargo_classes:   0;
+        cargo_allow_refit:              [PASS, TOUR, YETI, YETY];
+        cargo_disallow_refit:           [];
+        refit_cost:                     0;
+        default_cargo_type:             PASS;
+        ai_special_flag:                AI_FLAG_PASSENGER;
+        cargo_capacity:                 1;
+        loading_speed:                  30;
+        cargo_age_period:               120;
+
+        // Stats
+        speed:                          80 km/h;
+        power:                          1350 kW;
+        weight:                         16 ton;
+        tractive_effort_coefficient:    0.185;
+        cost_factor:                    30;
+        running_cost_base:              RUNNING_COST_ELECTRIC;
+        running_cost_factor:            10;
+        reliability_decay:              10;
+    }
+    graphics {
+        // Menu
+        additional_text:                string(STR_DESC_2,string(STR_CHENGDU_CAN_ATTACH_WAGON),string(STR_A_WAGON));
+        can_attach_wagon:               A;
+        start_stop:                     mu2to8car;
+        // Graphics
+        default:                        switch_chengdu5_graphics;
+        purchase:                       spriteset_chengdu5_original;
+        articulated_part:               switch_chengdu5_articulated_part;
+        name:                           switch_chengdu5_name;
+        
+
+        // Stats
+        length:                         switch_length_2_7_2;
+        speed:                          80;
+        tractive_effort_coefficient:    return 0;
+        purchase_tractive_effort_coefficient: return int(0.171*255);
+        cargo_capacity:                 300/3;
+        cargo_age_period:               140;
+        cost_factor:                    30;
+        purchase_running_cost_factor:   50;
+    }
+       // Multiple Unit Wagons
+    livery_override(chengdu_car_a) {
+        default:                        switch_chengdu5_graphics;
+        cargo_capacity:                 switch_chengdu5_capacity;
+        power:                          130;
+        tractive_effort_coefficient:    switch_chengdu5_traction;
+        length:                         switch_length_2_7_2;
+        weight:                         return 16;
+        can_attach_wagon:               A;
+        cargo_age_period:               140;
+        bitmask_vehicle_info:           0;
+        articulated_part:               switch_chengdu_car_articulated_part;
+        cost_factor:                    31;
+    }
+}
