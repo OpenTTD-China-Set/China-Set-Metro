@@ -1,0 +1,159 @@
+//begin chengdu_car
+switch (FEAT_TRAINS, SELF, switch_CHENGDU_DIT_name, getbits(extra_callback_info1, 0, 8) == 0x20? getbits(extra_callback_info1, 8, 8) : 0xFFFF) {
+    0: return string(STR_CHENGDU_DITIE_SERIES);
+    return CB_RESULT_NO_TEXT;
+}
+spriteset (spriteset_chengdu_car_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_purchase ("chengdu_metro", "chengdu2-m")
+}
+spriteset (spriteset_chengdu_car_a_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_purchase ("chengdu_metro", "chengdu7-m")
+}
+spriteset (spriteset_chengdu_car_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_standard ("chengdu_metro", "chengdu2-m")
+}
+spriteset (spriteset_chengdu_car_a_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_standard ("chengdu_metro", "chengdu7-m")
+}
+switch (FEAT_TRAINS, SELF, switch_chengdu_car_articulated_part, extra_callback_info1) {
+    1..2: return chengdu_car_b;
+    return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+switch (FEAT_TRAINS, SELF, switch_chengdu_car_a_articulated_part, extra_callback_info1) {
+    1..2: return chengdu_car_a;
+    return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+switch (FEAT_TRAINS, SELF, switch_chengdu_car_graphics, position_in_articulated_veh % 3) {
+    1: spriteset_chengdu_car_original;
+    empty_sprites;
+}switch (FEAT_TRAINS, SELF, switch_chengdu_car_a_graphics, position_in_articulated_veh % 3) {
+    1: spriteset_chengdu_car_a_original;
+    empty_sprites;
+}
+
+
+
+
+
+
+item (FEAT_TRAINS, chengdu_car_b) {
+    property {
+        // Menu
+        name:                           string(STR_NAME_CHENGDU_CAR);
+        sprite_id:                      SPRITE_ID_NEW_TRAIN;
+        variant_group:					10001;
+
+        // Availability
+        climates_available:             ALL_CLIMATES;
+        introduction_date:              date(1950,01,01);
+        model_life:                     VEHICLE_NEVER_EXPIRES;
+        vehicle_life:                   30;
+        track_type:                     SAAN;
+
+        // Cargo
+        refittable_cargo_classes:       bitmask(CC_PASSENGERS);
+        non_refittable_cargo_classes:   0;
+        cargo_allow_refit:              [PASS, TOUR, YETI, YETY];
+        cargo_disallow_refit:           [];
+        refit_cost:                     0;
+        default_cargo_type:             PASS;
+        ai_special_flag:                AI_FLAG_PASSENGER;
+        cargo_capacity:                 90;                         //depending on the mu这里是无效的？
+        loading_speed:                  8;
+        cargo_age_period:               300;
+
+        // Stats
+        speed:                          0 km/h;                 //depending on the mu
+        power:                          0 hp;                   //depending on the mu
+        weight:                         50;                 //depending on the mu
+        cost_factor:                    24;
+        running_cost_base:              RUNNING_COST_ELECTRIC;
+        running_cost_factor:            6;                      //depending on the mu
+        
+    }
+    graphics {
+        // Menu
+        additional_text:                string(STR_DESC_2,string(STR_ATTACH_ALL_CHENGDU_CAR),string(STR_LINEB_CAR));
+        can_attach_wagon:               B;
+
+        // Graphics
+        default:                        switch_chengdu_car_graphics;
+        purchase:                       spriteset_chengdu_car_purchase_original;
+        articulated_part:               switch_chengdu_car_articulated_part;
+
+        // Stats
+        length:                         switch_length_2_5_2;
+        cargo_capacity:                 0;
+        cargo_age_period:               20 * 5 * cafedecayfactor();
+        cost_factor:                    24;
+        running_cost_factor:            3 * runningcostfactor() * cafecostfactor() + accostfactor();
+        purchase_running_cost_factor:   36;
+        purchase_cargo_capacity:        280/3;
+        visual_effect_and_powered:      return 0;
+        name:                           switch_CHENGDU_DIT_name;
+
+    }
+}
+
+//A型地铁车厢
+//图像就用上边的图像吧
+item (FEAT_TRAINS, chengdu_car_a) {
+    property {
+        // Menu
+        name:                           string(STR_NAME_CHENGDU_A);
+        sprite_id:                      SPRITE_ID_NEW_TRAIN;
+        variant_group:					10001;
+
+        // Availability
+        climates_available:             ALL_CLIMATES;
+        introduction_date:              date(1950,01,01);
+        model_life:                     VEHICLE_NEVER_EXPIRES;
+        vehicle_life:                   30;
+        track_type:                     SAAN;
+
+        // Cargo
+        refittable_cargo_classes:       bitmask(CC_PASSENGERS);
+        non_refittable_cargo_classes:   0;
+        cargo_allow_refit:              [PASS, TOUR, YETI, YETY];
+        cargo_disallow_refit:           [];
+        refit_cost:                     0;
+        default_cargo_type:             PASS;
+        ai_special_flag:                AI_FLAG_PASSENGER;
+        cargo_capacity:                 90;                         //depending on the mu这里是无效的？
+        loading_speed:                  8;
+        cargo_age_period:               300;
+
+        // Stats
+        speed:                          0 km/h;                 //depending on the mu
+        power:                          0 hp;                   //depending on the mu
+        weight:                         50;                 //depending on the mu
+        cost_factor:                    24;
+        running_cost_base:              RUNNING_COST_ELECTRIC;
+        running_cost_factor:            6;                      //depending on the mu
+        curve_speed_mod:                0.2;
+    }
+    graphics {
+        // Menu
+        additional_text:                string(STR_DESC_2,string(STR_ATTACH_ALL_CHENGDU_CAR),string(STR_LINEA_CAR));
+        can_attach_wagon:               A;
+
+        // Graphics
+        default:                        switch_chengdu_car_a_graphics;
+        purchase:                       spriteset_chengdu_car_a_purchase_original;
+        articulated_part:               switch_chengdu_car_a_articulated_part;
+
+        // Stats
+        length:                         switch_length_2_7_2;
+        cargo_capacity:                 0;
+        cargo_age_period:               20 * 5 * cafedecayfactor();
+        cost_factor:                    24;
+        running_cost_factor:            4 * runningcostfactor() * cafecostfactor() + accostfactor();
+        purchase_running_cost_factor:   36;
+        purchase_cargo_capacity:        300/3;
+        visual_effect_and_powered:      return 0;
+        name:                           switch_CHENGDU_DIT_name;
+
+    }
+}
+

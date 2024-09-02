@@ -1,0 +1,7 @@
+sort (FEAT_TRAINS, [
+    chengdu1,
+    chengdu2,
+    chengdu3,
+    chengdu4,
+    chengdu7,
+]);
