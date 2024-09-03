@@ -52,7 +52,7 @@ item (FEAT_TRAINS,chengdu_car_ab) {
         // Stats
         speed:                          0 km/h;                 //depending on the mu
         power:                          0 hp;                   //depending on the mu
-        weight:                         50;                 //depending on the mu
+        weight:                         30;                 //depending on the mu
         cost_factor:                    24;
         running_cost_base:              RUNNING_COST_ELECTRIC;
         running_cost_factor:            6;                      //depending on the mu

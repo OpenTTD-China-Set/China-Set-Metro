@@ -138,7 +138,7 @@ item (FEAT_TRAINS, chengdu1) {
         // Stats
         speed:                          80 km/h;
         power:                          1000 kW;
-        weight:                         14 ton;
+        weight:                         30 ton;
         tractive_effort_coefficient:    0.185;
         cost_factor:                    30;
         running_cost_base:              RUNNING_COST_ELECTRIC;
@@ -174,7 +174,7 @@ item (FEAT_TRAINS, chengdu1) {
         power:                          90;
         tractive_effort_coefficient:    switch_chengdu1_traction;
         length:                         switch_length_2_5_2;
-        weight:                         return 14;
+        weight:                         return 30;
         can_attach_wagon:               AB;
         cargo_age_period:               140;
         bitmask_vehicle_info:           0;

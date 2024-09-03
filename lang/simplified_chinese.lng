@@ -18,16 +18,16 @@ STR_RELDEC_LOW:{BLACK}可靠性下降速度:{GREEN}较低（{COMMA}）
 
 
 
-STR_ATTACH_ALL_CHENGDU_CAR: 成都地铁
-STR_NAME_CHENGDU_CAR:成都地铁车厢
+STR_ATTACH_ALL_CHENGDU_CAR:成都地铁
+STR_NAME_CHENGDU_CAR:中国包地铁车厢
 STR_A_WAGON:{RED}只能搭载A型车厢，最大6节编组
 STR_B_WAGON:{RED}只能搭载B型车厢，最大6节编组
-STR_LINEB_CAR:{YELLOW}成都地铁1号线，2号线，3号线，4号线，5号线，6号线，7号线，8号线，9号线，10号线，17号线，18号线，19号线，资阳线列车车厢列车车厢
+STR_LINEB_CAR:{YELLOW}中国地铁包列车专用车厢
 
 
-STR_NAME_CHENGDU1:       成都地铁1号线列车
-STR_NAME_CHENGDU2:       成都地铁2号线列车
-STR_NAME_CHENGDU3:       成都地铁3号线列车
-STR_NAME_CHENGDU4:       成都地铁4号线列车
-STR_NAME_CHENGDU5:       成都地铁5号线列车
-STR_NAME_CHENGDU7:       成都地铁7号线列车
+STR_NAME_CHENGDU1:成都地铁1号线列车
+STR_NAME_CHENGDU2:成都地铁2号线列车
+STR_NAME_CHENGDU3:成都地铁3号线列车
+STR_NAME_CHENGDU4:成都地铁4号线列车
+STR_NAME_CHENGDU5:成都地铁5号线列车
+STR_NAME_CHENGDU7:成都地铁7号线列车
