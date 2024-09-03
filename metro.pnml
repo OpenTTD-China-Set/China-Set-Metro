@@ -1,0 +1,7 @@
+#include "src/header.pnml"
+#include "src/template.pnml"
+#include "src/railtypetable.pnml"
+#include "src/vehicleid.pnml"
+#include "src/functions.pnml"
+#include "src/wagons.pnml"
+#include "src/id.pnml"
