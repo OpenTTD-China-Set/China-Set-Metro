@@ -1,4 +1,37 @@
 {
     "default_manifest": "manifest.json",
-    "default_palette": "ttd_palette.json"
+    "default_palette": "ttd_palette.json",
+    "gfx/chengdu_metro/chengdu5-c.vox": {
+        "palette":"palette/line5.json"
+    },
+    "gfx/chengdu_metro/chengdu5-cr.vox": {
+        "palette":"palette/line5.json"
+    },
+    "gfx/chengdu_metro/chengdu5-m.vox": {
+        "palette":"palette/line5.json"
+    },
+     "gfx/chengdu_metro/chengdu5-p.vox": {
+      "palette":"palette/line5.json"
+     },
+    "gfx/chengdu_metro/chengdu5-pr.vox": {
+      "palette":"palette/line5.json"
+    },
+    "gfx/chengdu_metro/chengdu3-mr.vox": {
+      "palette":"palette/line3.json"
+    },
+    "gfx/chengdu_metro/chengdu3-c.vox": {
+        "palette":"palette/line3.json"
+    },
+    "gfx/chengdu_metro/chengdu3-cr.vox": {
+        "palette":"palette/line3.json"
+    },
+    "gfx/chengdu_metro/chengdu3-m.vox": {
+        "palette":"palette/line3.json"
+    },
+     "gfx/chengdu_metro/chengdu3-p.vox": {
+      "palette":"palette/line3.json"
+     },
+    "gfx/chengdu_metro/chengdu3-pr.vox": {
+      "palette":"palette/line3.json"
+    }
 }
