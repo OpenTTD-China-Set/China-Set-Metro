@@ -1,6 +1,6 @@
 //7号线
 //折叠列表
-switch (FEAT_TRAINS, SELF, switch_chengdu_name, getbits(extra_callback_info1, 0, 8) == 0x20? getbits(extra_callback_info1, 8, 8) : 0xFFFF) {
+switch (FEAT_TRAINS, SELF, switch_chengdu7_name, getbits(extra_callback_info1, 0, 8) == 0x20? getbits(extra_callback_info1, 8, 8) : 0xFFFF) {
     0: return string(STR_ATTACH_ALL_CHENGDU_CAR);
     return CB_RESULT_NO_TEXT;
 }
@@ -155,7 +155,7 @@ item (FEAT_TRAINS, chengdu7) {
         default:                        switch_chengdu7_graphics;
         purchase:                       spriteset_chengdu7_original;
         articulated_part:               switch_chengdu7_articulated_part;
-        name:                           switch_chengdu_name;
+        name:                           switch_chengdu7_name;
         
 
         // Stats

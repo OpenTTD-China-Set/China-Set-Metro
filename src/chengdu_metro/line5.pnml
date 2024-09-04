@@ -1,4 +1,4 @@
-//7号线
+//5号线
 //折叠列表
 switch (FEAT_TRAINS, SELF, switch_chengdu5_name, getbits(extra_callback_info1, 0, 8) == 0x20? getbits(extra_callback_info1, 8, 8) : 0xFFFF) {
     0: return string(STR_ATTACH_ALL_CHENGDU_CAR);

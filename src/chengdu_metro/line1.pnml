@@ -24,36 +24,74 @@ spriteset (spriteset_chengdu1_pr, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
 spriteset (spriteset_chengdu1_cab, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_standard ("chengdu_metro", "chengdu1-cr")
 }
+spriteset (spriteset_chengdu1b_c_front, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_standard ("chengdu_metro", "chengdu1b-c")
+}
+spriteset (spriteset_chengdu1b_p, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_standard ("chengdu_metro", "chengdu1b-p")
+}
+spriteset (spriteset_chengdu1b_m, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_standard ("chengdu_metro", "chengdu1b-m")
+}
+spriteset (spriteset_chengdu1b_pr, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_standard ("chengdu_metro", "chengdu1b-pr")
+}
+spriteset (spriteset_chengdu1b_cab, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_standard ("chengdu_metro", "chengdu1b-cr")
+}
 switch (FEAT_TRAINS, SELF, switch_chengdu1_articulated_part, extra_callback_info1) {
     1..2: return chengdu1;
     return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
-
-
-
+//改装
+switch (FEAT_TRAINS, SELF, switch_chengdu1_subtype, cargo_subtype) {
+    0: return string(STR_SFM06);
+    1: return string(STR_SFM32);
+    return CB_RESULT_NO_TEXT;
+}
+switch (FEAT_TRAINS, SELF, switch_chengdu1_front, cargo_subtype) {
+   0: spriteset_chengdu1_c_front;
+   1: spriteset_chengdu1b_c_front;
+}
+switch (FEAT_TRAINS, SELF, switch_chengdu1_m, cargo_subtype) {
+   0: spriteset_chengdu1_m;
+   1: spriteset_chengdu1b_m;
+}
+switch (FEAT_TRAINS, SELF, switch_chengdu1_p, cargo_subtype) {
+   0: spriteset_chengdu1_p;
+   1: spriteset_chengdu1b_pr;
+}
+switch (FEAT_TRAINS, SELF, switch_chengdu1_pr, cargo_subtype) {
+   0: spriteset_chengdu1_pr;
+   1: spriteset_chengdu1b_p;
+}
+switch (FEAT_TRAINS, SELF, switch_chengdu1_cab, cargo_subtype) {
+   0: spriteset_chengdu1_cab;
+   1: spriteset_chengdu1b_cab;
+}
 //编组
 
 
 
 switch (FEAT_TRAINS, SELF, switch_chengdu119_graphics, position_in_articulated_veh % 3) {
-    1: spriteset_chengdu1_m;
+    1: switch_chengdu1_m;
     empty_sprites;
 }
 switch (FEAT_TRAINS, SELF, switch_chengdu121_graphics,position_in_consist_from_end){
-    4: spriteset_chengdu1_pr;
+    4: switch_chengdu1_pr;
     switch_chengdu119_graphics;
 }
 switch (FEAT_TRAINS, SELF, switch_chengdu120_graphics,position_in_consist){
-    4: spriteset_chengdu1_p;
+    4: switch_chengdu1_p;
     switch_chengdu121_graphics;
 }
 switch (FEAT_TRAINS, SELF, switch_chengdu140_graphics,position_in_consist_from_end){
-    1: spriteset_chengdu1_cab;
+    1: switch_chengdu1_cab;
     switch_chengdu120_graphics;
 }
 switch (FEAT_TRAINS, SELF, switch_chengdu1_graphics,position_in_consist){
-    1: spriteset_chengdu1_c_front;
+    1: switch_chengdu1_front;
     switch_chengdu140_graphics;
 }
 
@@ -155,6 +193,7 @@ item (FEAT_TRAINS, chengdu1) {
         purchase:                       spriteset_chengdu1_original;
         articulated_part:               switch_chengdu1_articulated_part;
         name:                           switch_chengdu1_name;
+        cargo_subtype_text:             switch_chengdu1_subtype;
         
 
         // Stats
