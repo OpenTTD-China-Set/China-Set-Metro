@@ -35,7 +35,7 @@ item (FEAT_TRAINS,chengdu_car_ab) {
         introduction_date:              date(1950,01,01);
         model_life:                     VEHICLE_NEVER_EXPIRES;
         vehicle_life:                   30;
-        track_type:                     SAAN;
+        track_type:                     SABd;
 
         // Cargo
         refittable_cargo_classes:       bitmask(CC_PASSENGERS);

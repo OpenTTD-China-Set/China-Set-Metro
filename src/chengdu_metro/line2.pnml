@@ -116,7 +116,7 @@ item (FEAT_TRAINS, chengdu2) {
         model_life:                     60;
         retire_early:                   35;
         vehicle_life:                   35;
-        track_type:                     SACA;
+        track_type:                     SAAd;
 
         // Cargo
         refittable_cargo_classes:       bitmask(CC_PASSENGERS);
