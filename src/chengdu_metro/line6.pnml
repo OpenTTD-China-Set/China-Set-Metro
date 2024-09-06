@@ -149,7 +149,7 @@ item (FEAT_TRAINS, chengdu6) {
     }
     graphics {
         // Menu
-        additional_text:                string(STR_DESC_2,string(STR_CHENGDU_CAN_ATTACH_WAGON),string(STR_A_WAGON));
+        additional_text:                string(STR_DESC_2,string(STR_CHENGDU_CAN_ATTACH_WAGON),string(STR_8A_WAGON));
         can_attach_wagon:               AB;
         start_stop:                     mu2to8car;
         // Graphics

@@ -27,7 +27,9 @@ STR_DESC_3:{STRING}{}{STRING}{}{STRING}
 STR_DESC_2:{STRING}{}{STRING}
 
 STR_B_WAGON:{RED}It can only be equipped with A-type cars and can be used in a maximum of 6 cars
-STR_A_WAGON:{RED}It can only be equipped with A-type cars and can be used in a maximum of 8 cars
+STR_A_WAGON:{RED}It can only be equipped with A-type cars and can be used in a maximum of 6 cars
+STR_8A_WAGON:{RED}It can only be equipped with A-type cars and can be used in a maximum of 8 cars
+STR_4A_WAGON:{RED}It can only be equipped with A-type cars and can be used in a maximum of 4 cars
 STR_LINEB_CAR:{YELLOW}China subway charter train special carriages
 
 
@@ -47,3 +49,7 @@ STR_NAME_CHENGDU7:Chengdu Metro Line 7 train
 STR_NAME_CHENGDU8:Chengdu Metro Line 8 train
 STR_NAME_CHENGDU9:Chengdu Metro Line 9 train
 STR_NAME_CHENGDU10:Chengdu Metro Line 10 train
+STR_NAME_CHENGDU18:Chengdu Metro Line 18 train
+STR_HONGBAI:Red and white livery
+STR_LANBAI:Blue and white livery
+STR_NAME_CHENGDU17:Chengdu Metro Line 17 train

@@ -9,4 +9,5 @@ sort (FEAT_TRAINS, [
     chengdu8,
     chengdu9,
     chengdu10,
+    chengdu18,
 ]);
