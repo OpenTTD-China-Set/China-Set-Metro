@@ -1,4 +1,5 @@
 sort (FEAT_TRAINS, [
+    beijing1,
     chengdu1,
     chengdu2,
     chengdu3,

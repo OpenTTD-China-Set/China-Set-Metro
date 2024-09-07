@@ -10,7 +10,7 @@ STR_COMFORT_VERY_HIGH:{BLACK}Comfort: {BLUE}Very high  （{COMMA}）
 STR_COMFORT_EXTREMELY_HIGH:{BLACK}Comfort: {WHITE}Extremely high  （{COMMA}）
 STR_ELECTRIC_25KVAC: {BLACK}Power Supply: {RED}25kV AC {LTBLUE}(Overhead Lines)
 STR_ELECTRIC_1500VDC: {BLACK}Power Supply: {BLUE}1500V DC {LTBLUE}(Overhead Lines)
-STR_CHENGDU_CAN_ATTACH_WAGON:{BLACK}Chengdu subway cars are available
+STR_CHENGDU_CAN_ATTACH_WAGON:{BLACK}China subway cars are available
 STR_MUST_BE_2_TO_6_CARS:{RED}Minimum 2 cars and maximum 6 cars
 STR_MUST_BE_2_TO_8_CARS:{RED}Minimum 2 cars and maximum 8 cars
 STR_RELDEC_LOW:{BLACK}Reliability decay speed: {GREEN}Low （{COMMA}）
@@ -55,4 +55,5 @@ STR_HONGBAI:Red and white livery
 STR_LANBAI:Blue and white livery
 STR_NAME_CHENGDU17:Chengdu Metro Line 17 train
 STR_LINE17:Some trains will be operated on Line 18
-
+STR_BEIJING:Beijing Metro
+STR_NAME_BEIJING1:Beijing Metro Line 1 train
