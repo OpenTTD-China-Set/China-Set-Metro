@@ -50,6 +50,9 @@ STR_NAME_CHENGDU8:Chengdu Metro Line 8 train
 STR_NAME_CHENGDU9:Chengdu Metro Line 9 train
 STR_NAME_CHENGDU10:Chengdu Metro Line 10 train
 STR_NAME_CHENGDU18:Chengdu Metro Line 18 train
+STR_NAME_CHENGDU19:Chengdu Metro Line 19 train
 STR_HONGBAI:Red and white livery
 STR_LANBAI:Blue and white livery
 STR_NAME_CHENGDU17:Chengdu Metro Line 17 train
+STR_LINE17:Some trains will be operated on Line 18
+

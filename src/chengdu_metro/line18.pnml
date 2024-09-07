@@ -13,13 +13,13 @@ spriteset (spriteset_chengdu18_c_front, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_standard ("chengdu_metro", "chengdu18-c")
 }
 spriteset (spriteset_chengdu18_p, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("chengdu_metro", "chengdu18-p")
+    template_standard ("chengdu_metro", "chengdu18-pr")
 }
 spriteset (spriteset_chengdu18_m, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_standard ("chengdu_metro", "chengdu18-m")
 }
 spriteset (spriteset_chengdu18_pr, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("chengdu_metro", "chengdu18-pr")
+    template_standard ("chengdu_metro", "chengdu18-p")
 }
 spriteset (spriteset_chengdu18_cab, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_standard ("chengdu_metro", "chengdu18-cr")

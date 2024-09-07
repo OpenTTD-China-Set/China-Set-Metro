@@ -9,4 +9,6 @@ item (FEAT_TRAINS, chengdu7, 10070) {}
 item (FEAT_TRAINS, chengdu8, 10052) {}
 item (FEAT_TRAINS, chengdu9, 10053) {}
 item (FEAT_TRAINS, chengdu10, 10054) {}
-item (FEAT_TRAINS, chengdu18, 10055) {}
+item (FEAT_TRAINS, chengdu17, 10055) {}
+item (FEAT_TRAINS, chengdu18, 10056) {}
+item (FEAT_TRAINS, chengdu19, 10057) {}
