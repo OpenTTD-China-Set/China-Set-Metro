@@ -82,7 +82,7 @@ item (FEAT_TRAINS, beijing1) {
         model_life:                     60;
         retire_early:                   35;
         vehicle_life:                   35;
-        track_type:                     SAAd;
+        track_type:                     SAC3;
 
         // Cargo
         refittable_cargo_classes:       bitmask(CC_PASSENGERS);
