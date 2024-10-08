@@ -1,6 +1,6 @@
 ##grflangid 0x01
 
-STR_GRF_NAME                                                    :China Set: Metros
+STR_GRF_NAME                                                    :China Set: Metros 0.12
 STR_GRF_DESC                                                    :{BLACK}CNSM is a collection of Chinese metro vehicles
 STR_GRF_URL                                                     :https://github.com/OpenTTD-China-Set/china-set-metro
 
@@ -33,9 +33,12 @@ STR_8A_WAGON                                                    :{RED}Only A-typ
 STR_B_WAGON                                                     :{RED}Only B-type wagons can be attatched; maximum: 6 cars
 
 STR_LINEB_CAR                                                   :{YELLOW}CNSM MU wagon
+STR_3RD:{GREEN}Third rail cars only
 
 STR_ATTACH_ALL_CHENGDU_CAR                                      :China Set: Metro Trains
-STR_NAME_CHENGDU_CAR                                            :Chengdu Metro Trains
+STR_NAME_CHENGDU_CAR                                            :Chengdu Metro Trains(overhead line)
+STR_NAME_CHENGDU_CAR3                                            :Chengdu Metro Trains(The third track)
+
 
 STR_SFM06                                                       :SFM06train
 STR_SFM32                                                       :SFM32train
@@ -60,3 +63,4 @@ STR_LINE17                                                      :Some trains wil
 
 STR_BEIJING                                                     :Beijing Metro
 STR_NAME_BEIJING1                                               :Beijing Metro Line 1 train
+STR_NAME_BEIJING2                                               :Beijing Metro Line 2 train

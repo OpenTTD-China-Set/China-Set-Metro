@@ -1,25 +1,25 @@
 //3号线
 //折叠列表
-switch (FEAT_TRAINS, SELF, switch_beijing1_name, getbits(extra_callback_info1, 0, 8) == 0x20? getbits(extra_callback_info1, 8, 8) : 0xFFFF) {
+switch (FEAT_TRAINS, SELF, switch_beijing2_name, getbits(extra_callback_info1, 0, 8) == 0x20? getbits(extra_callback_info1, 8, 8) : 0xFFFF) {
     0: return string(STR_BEIJING);
     return CB_RESULT_NO_TEXT;
 }
 
-spriteset (spriteset_beijing1_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("beijing_metro", "beijing1-c")
+spriteset (spriteset_beijing2_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_purchase ("beijing_metro", "beijing2-c")
 }
 // Vehicle
-spriteset (spriteset_beijing1_c_front, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("beijing_metro", "beijing1-c")
+spriteset (spriteset_beijing2_c_front, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_standard ("beijing_metro", "beijing2-c")
 }
-spriteset (spriteset_beijing1_m, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("beijing_metro", "beijing1-m")
+spriteset (spriteset_beijing2_m, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_standard ("beijing_metro", "beijing2-m")
 }
-spriteset (spriteset_beijing1_cab, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("beijing_metro", "beijing1-cr")
+spriteset (spriteset_beijing2_cab, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_standard ("beijing_metro", "beijing2-cr")
 }
-switch (FEAT_TRAINS, SELF, switch_beijing1_articulated_part, extra_callback_info1) {
-    1..2: return beijing1;
+switch (FEAT_TRAINS, SELF, switch_beijing2_articulated_part, extra_callback_info1) {
+    1..2: return beijing2;
     return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
@@ -30,55 +30,56 @@ switch (FEAT_TRAINS, SELF, switch_beijing1_articulated_part, extra_callback_info
 
 
 
-switch (FEAT_TRAINS, SELF, switch_beijing120_graphics, position_in_articulated_veh % 3) {
-    1: spriteset_beijing1_m;
+switch (FEAT_TRAINS, SELF, switch_beijing220_graphics, position_in_articulated_veh % 3) {
+    1: spriteset_beijing2_m;
     empty_sprites;
 }
 
-switch (FEAT_TRAINS, SELF, switch_beijing140_graphics,position_in_consist_from_end){
-    1: spriteset_beijing1_cab;
-    switch_beijing120_graphics;
+switch (FEAT_TRAINS, SELF, switch_beijing240_graphics,position_in_consist_from_end){
+    1: spriteset_beijing2_cab;
+    switch_beijing220_graphics;
 }
-switch (FEAT_TRAINS, SELF, switch_beijing1_graphics,position_in_consist){
-    1: spriteset_beijing1_c_front;
-    switch_beijing140_graphics;
+switch (FEAT_TRAINS, SELF, switch_beijing2_graphics,position_in_consist){
+    1: spriteset_beijing2_c_front;
+    switch_beijing240_graphics;
 }
 
 
 //载客
 
-switch (FEAT_TRAINS, SELF, switch_beijing140_capacity,position_in_consist_from_end){
+switch (FEAT_TRAINS, SELF, switch_beijing240_capacity,position_in_consist_from_end){
     1: return 230;
     return 250;
 }
-switch (FEAT_TRAINS, SELF, switch_beijing120_capacity,position_in_consist){
+switch (FEAT_TRAINS, SELF, switch_beijing220_capacity,position_in_consist){
     1: return 230;
-    switch_beijing140_capacity;
+    switch_beijing240_capacity;
 }
-switch (FEAT_TRAINS, SELF, switch_beijing1_capacity, position_in_articulated_veh % 3) {
-    1: switch_beijing120_capacity;
+switch (FEAT_TRAINS, SELF, switch_beijing2_capacity, position_in_articulated_veh % 3) {
+    1: switch_beijing220_capacity;
     return 0;
 }
 
-switch (FEAT_TRAINS, SELF, switch_beijing1_traction, vehicle_is_potentially_powered) {
+switch (FEAT_TRAINS, SELF, switch_beijing2_traction, vehicle_is_potentially_powered) {
     1: return int(0.131*255);
     return 0;
 }
 
 
 //关于北京1号线列车
-item (FEAT_TRAINS, beijing1) {
+item (FEAT_TRAINS, beijing2) {
     property {
         // Menu
-        name:                           string(STR_NAME_BEIJING1);
+        name:                           string(STR_NAME_BEIJING2);
         sprite_id:                      SPRITE_ID_NEW_TRAIN;
         misc_flags:                     bitmask(TRAIN_FLAG_AUTOREFIT, TRAIN_FLAG_MU);
         engine_class:                   ENGINE_CLASS_ELECTRIC;
+        variant_group:					11000;
        
         
         // Availability
         climates_available:             ALL_CLIMATES;
-        introduction_date:              date(1969,10,01);
+        introduction_date:              date(1984,9,20);
         model_life:                     60;
         retire_early:                   35;
         vehicle_life:                   35;
@@ -98,9 +99,9 @@ item (FEAT_TRAINS, beijing1) {
 
         // Stats
         speed:                          80 km/h;
-        power:                          980 kW;
-        weight:                         28 ton;
-        tractive_effort_coefficient:    0.185;
+        power:                          940 kW;
+        weight:                         26 ton;
+        tractive_effort_coefficient:    0.184;
         cost_factor:                    21;
         running_cost_base:              RUNNING_COST_ELECTRIC;
         running_cost_factor:            10;
@@ -112,34 +113,34 @@ item (FEAT_TRAINS, beijing1) {
         can_attach_wagon:               AB3;
         start_stop:                     mu2to6car;
         // Graphics
-        default:                        switch_beijing1_graphics;
-        purchase:                       spriteset_beijing1_original;
-        articulated_part:               switch_beijing1_articulated_part;
-        name:                           switch_beijing1_name;
+        default:                        switch_beijing2_graphics;
+        purchase:                       spriteset_beijing2_original;
+        articulated_part:               switch_beijing2_articulated_part;
+        name:                           switch_beijing2_name;
         
 
         // Stats
         length:                         switch_length_2_5_2;
         speed:                          80;
         tractive_effort_coefficient:    return 0;
-        purchase_tractive_effort_coefficient: return int(0.131*255);
+        purchase_tractive_effort_coefficient: return int(0.121*255);
         cargo_capacity:                 230/3;
         cargo_age_period:               140;
-        cost_factor:                    21;
-        purchase_running_cost_factor:   21;
+        cost_factor:                    20;
+        purchase_running_cost_factor:   20;
     }
        // Multiple Unit Wagons
     livery_override(chengdu_car_ab3) {
-        default:                        switch_beijing1_graphics;
-        cargo_capacity:                 switch_beijing1_capacity;
+        default:                        switch_beijing2_graphics;
+        cargo_capacity:                 switch_beijing2_capacity;
         power:                          90;
-        tractive_effort_coefficient:    switch_beijing1_traction;
+        tractive_effort_coefficient:    switch_beijing2_traction;
         length:                         switch_length_2_5_2;
         weight:                         return 30;
         can_attach_wagon:               AB3;
         cargo_age_period:               140;
         bitmask_vehicle_info:           0;
         articulated_part:               switch_chengdu_car_articulated_part;
-        cost_factor:                    21;
+        cost_factor:                    20;
     }
 }

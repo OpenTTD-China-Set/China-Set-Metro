@@ -166,7 +166,7 @@ item (FEAT_TRAINS, chengdu10) {
         cargo_capacity:                 300/3;
         cargo_age_period:               170;
         cost_factor:                    30;
-        purchase_running_cost_factor:   50;
+        purchase_running_cost_factor:   30;
     }
        // Multiple Unit Wagons
     livery_override(chengdu_car_ab) {

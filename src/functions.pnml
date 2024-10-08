@@ -25,6 +25,11 @@ switch (FEAT_TRAINS, SELF, AB, vehicle_type_id) {
     10001: return CB_RESULT_ATTACH_ALLOW_IF_RAILTYPES;
     return CB_RESULT_ATTACH_DISALLOW;
 }
+switch (FEAT_TRAINS, SELF, AB3, vehicle_type_id) {
+    10002: return CB_RESULT_ATTACH_ALLOW_IF_RAILTYPES;
+    return CB_RESULT_ATTACH_DISALLOW;
+}
+
 
 
 //运行费用相关
