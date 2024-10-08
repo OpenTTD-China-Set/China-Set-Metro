@@ -36,8 +36,8 @@ STR_LINEB_CAR                                                   :{YELLOW}CNSM MU
 STR_3RD:{GREEN}Third rail cars only
 
 STR_ATTACH_ALL_CHENGDU_CAR                                      :China Set: Metro Trains
-STR_NAME_CHENGDU_CAR                                            :Chengdu Metro Trains(overhead line)
-STR_NAME_CHENGDU_CAR3                                            :Chengdu Metro Trains(The third track)
+STR_NAME_CHENGDU_CAR                                            :China package subway car(overhead line)
+STR_NAME_CHENGDU_CAR3                                           :China package subway car(The third track)
 
 
 STR_SFM06                                                       :SFM06train

@@ -78,7 +78,7 @@ item (FEAT_TRAINS, beijing1) {
         
         // Availability
         climates_available:             ALL_CLIMATES;
-        introduction_date:              date(1969,10,01);
+        introduction_date:              date(1998,11,16);
         model_life:                     60;
         retire_early:                   35;
         vehicle_life:                   35;
