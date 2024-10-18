@@ -1,4 +1,4 @@
 .nmlcache/
 *.grf
 *.nml
-*.gfx/*/*.png
+gfx/**/*.png
