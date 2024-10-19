@@ -6,24 +6,9 @@ switch (FEAT_TRAINS, SELF, switch_chengdu1_name, getbits(extra_callback_info1, 0
 }
 
 spriteset (spriteset_chengdu1_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("chengdu_metro", "chengdu1-c")
+    template_purchase ("chengdu_metro", "chengdu1-sfm26-c")
 }
 // Vehicle
-spriteset (spriteset_chengdu1_c_front, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("chengdu_metro", "chengdu1-c")
-}
-spriteset (spriteset_chengdu1_p, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("chengdu_metro", "chengdu1-p")
-}
-spriteset (spriteset_chengdu1_m, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("chengdu_metro", "chengdu1-m")
-}
-spriteset (spriteset_chengdu1_pr, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("chengdu_metro", "chengdu1-pr")
-}
-spriteset (spriteset_chengdu1_cab, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("chengdu_metro", "chengdu1-cr")
-}
 spriteset (spriteset_chengdu1b_c_front, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_standard ("chengdu_metro", "chengdu1b-c")
 }
@@ -39,6 +24,22 @@ spriteset (spriteset_chengdu1b_pr, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
 spriteset (spriteset_chengdu1b_cab, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_standard ("chengdu_metro", "chengdu1b-cr")
 }
+
+spriteset (spriteset_chengdu1_sfm26_c_front, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_standard ("chengdu_metro", "chengdu1-sfm26-c")
+}
+spriteset (spriteset_chengdu1_sfm26_p, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_standard ("chengdu_metro", "chengdu1-sfm26-p")
+}
+spriteset (spriteset_chengdu1_sfm26_m, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_standard ("chengdu_metro", "chengdu1-sfm26-m")
+}
+spriteset (spriteset_chengdu1_sfm26_pr, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_standard ("chengdu_metro", "chengdu1-sfm26-pr")
+}
+spriteset (spriteset_chengdu1_sfm26_cab, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_standard ("chengdu_metro", "chengdu1-sfm26-cr")
+}
 switch (FEAT_TRAINS, SELF, switch_chengdu1_articulated_part, extra_callback_info1) {
     1..2: return chengdu1;
     return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
@@ -46,28 +47,28 @@ switch (FEAT_TRAINS, SELF, switch_chengdu1_articulated_part, extra_callback_info
 
 //改装
 switch (FEAT_TRAINS, SELF, switch_chengdu1_subtype, cargo_subtype) {
-    0: return string(STR_SFM06);
+    0: return string(STR_SFM26);
     1: return string(STR_SFM32);
     return CB_RESULT_NO_TEXT;
 }
-switch (FEAT_TRAINS, SELF, switch_chengdu1_front, cargo_subtype) {
-   0: spriteset_chengdu1_c_front;
+switch (FEAT_TRAINS, PARENT, switch_chengdu1_front, cargo_subtype) {
+   0: spriteset_chengdu1_sfm26_c_front;
    1: spriteset_chengdu1b_c_front;
 }
-switch (FEAT_TRAINS, SELF, switch_chengdu1_m, cargo_subtype) {
-   0: spriteset_chengdu1_m;
+switch (FEAT_TRAINS, PARENT, switch_chengdu1_m, cargo_subtype) {
+   0: spriteset_chengdu1_sfm26_m;
    1: spriteset_chengdu1b_m;
 }
-switch (FEAT_TRAINS, SELF, switch_chengdu1_p, cargo_subtype) {
-   0: spriteset_chengdu1_p;
-   1: spriteset_chengdu1b_pr;
-}
-switch (FEAT_TRAINS, SELF, switch_chengdu1_pr, cargo_subtype) {
-   0: spriteset_chengdu1_pr;
+switch (FEAT_TRAINS, PARENT, switch_chengdu1_p, cargo_subtype) {
+   0: spriteset_chengdu1_sfm26_p;
    1: spriteset_chengdu1b_p;
 }
-switch (FEAT_TRAINS, SELF, switch_chengdu1_cab, cargo_subtype) {
-   0: spriteset_chengdu1_cab;
+switch (FEAT_TRAINS, PARENT, switch_chengdu1_pr, cargo_subtype) {
+   0: spriteset_chengdu1_sfm26_pr;
+   1: spriteset_chengdu1b_pr;
+}
+switch (FEAT_TRAINS, PARENT, switch_chengdu1_cab, cargo_subtype) {
+   0: spriteset_chengdu1_sfm26_cab;
    1: spriteset_chengdu1b_cab;
 }
 //编组
@@ -95,9 +96,19 @@ switch (FEAT_TRAINS, SELF, switch_chengdu1_graphics,position_in_consist){
     switch_chengdu140_graphics;
 }
 
+
+switch (FEAT_TRAINS, SELF, switch_chengdu1_gfx_front_1, cargo_subtype) {
+   0: spriteset_chengdu1_sfm26_c_front;
+   1: spriteset_chengdu1b_c_front;
+}
+switch (FEAT_TRAINS, SELF, switch_chengdu1_gfx_front,position_in_consist){
+    1: switch_chengdu1_gfx_front_1;
+    empty_sprites;
+}
+
 /*
 switch (FEAT_TRAINS, SELF, switch_chengdu141_graphics,position_in_consist){
-    4: spriteset_chengdu1_p;  
+    4: spriteset_chengdu1_p;
     1: spriteset_chengdu1_m;
     10:spriteset_chengdu1_m;
     13:spriteset_chengdu1_pr;
@@ -151,11 +162,12 @@ item (FEAT_TRAINS, chengdu1) {
         sprite_id:                      SPRITE_ID_NEW_TRAIN;
         misc_flags:                     bitmask(TRAIN_FLAG_AUTOREFIT, TRAIN_FLAG_MU);
         engine_class:                   ENGINE_CLASS_ELECTRIC;
-              
-        
+        variant_group:					10011;
+
+
         // Availability
         climates_available:             ALL_CLIMATES;
-        introduction_date:              date(2010,09,27);
+        introduction_date:              date(2012,01,21);
         model_life:                     60;
         retire_early:                   35;
         vehicle_life:                   35;
@@ -185,16 +197,16 @@ item (FEAT_TRAINS, chengdu1) {
     }
     graphics {
         // Menu
-        additional_text:                string(STR_DESC_2,string(STR_CHENGDU_CAN_ATTACH_WAGON),string(STR_B_WAGON));
+        additional_text:                string(STR_DESC_3,string(STR_CHENGDU_CAN_ATTACH_WAGON),string(STR_B_WAGON));
         can_attach_wagon:               AB;
         start_stop:                     mu2to6car;
         // Graphics
-        default:                        switch_chengdu1_graphics;
+        default:                        switch_chengdu1_gfx_front;
         purchase:                       spriteset_chengdu1_original;
         articulated_part:               switch_chengdu1_articulated_part;
         name:                           switch_chengdu1_name;
         cargo_subtype_text:             switch_chengdu1_subtype;
-        
+
 
         // Stats
         length:                         switch_length_2_5_2;

@@ -99,7 +99,7 @@ switch (FEAT_TRAINS, SELF, switch_chengdu18_graphics,position_in_consist){
 
 /*
 switch (FEAT_TRAINS, SELF, switch_chengdu1841_graphics,position_in_consist){
-    4: spriteset_chengdu18_p;  
+    4: spriteset_chengdu18_p;
     7: spriteset_chengdu18_m;
     10:spriteset_chengdu18_m;
     13:spriteset_chengdu18_pr;
@@ -153,9 +153,9 @@ item (FEAT_TRAINS, chengdu18) {
         sprite_id:                      SPRITE_ID_NEW_TRAIN;
         misc_flags:                     bitmask(TRAIN_FLAG_AUTOREFIT, TRAIN_FLAG_MU);
         engine_class:                   ENGINE_CLASS_ELECTRIC;
-        variant_group:					10010;
-       
-        
+        variant_group:					10011;
+
+
         // Availability
         climates_available:             ALL_CLIMATES;
         introduction_date:              date(2020,12,18);
@@ -197,7 +197,7 @@ item (FEAT_TRAINS, chengdu18) {
         articulated_part:               switch_chengdu18_articulated_part;
         name:                           switch_chengdu18_name;
         cargo_subtype_text:             switch_chengdu18_subtype;
-        
+
 
         // Stats
         length:                         switch_length_2_7_2;
