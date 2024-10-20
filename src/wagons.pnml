@@ -64,7 +64,7 @@ item (FEAT_TRAINS,chengdu_car_ab) {
         cost_factor:                    50;
         running_cost_base:              RUNNING_COST_ELECTRIC;
         running_cost_factor:            6;                      //depending on the mu
-        
+
     }
     graphics {
         // Menu
@@ -85,7 +85,7 @@ item (FEAT_TRAINS,chengdu_car_ab) {
         purchase_running_cost_factor:   10;
         purchase_cargo_capacity:        280/3;
         visual_effect_and_powered:      return 0;
-        
+
     }
 }
 item (FEAT_TRAINS,chengdu_car_ab3) {
@@ -93,7 +93,6 @@ item (FEAT_TRAINS,chengdu_car_ab3) {
         // Menu
         name:                           string(STR_NAME_CHENGDU_CAR3);
         sprite_id:                      SPRITE_ID_NEW_TRAIN;
-        variant_group:					10001;
 
         // Availability
         climates_available:             ALL_CLIMATES;
@@ -121,7 +120,7 @@ item (FEAT_TRAINS,chengdu_car_ab3) {
         cost_factor:                    50;
         running_cost_base:              RUNNING_COST_ELECTRIC;
         running_cost_factor:            6;                      //depending on the mu
-        
+
     }
     graphics {
         // Menu
@@ -142,7 +141,7 @@ item (FEAT_TRAINS,chengdu_car_ab3) {
         purchase_running_cost_factor:   30;
         purchase_cargo_capacity:        280/3;
         visual_effect_and_powered:      return 0;
-        
+
     }
 }
 

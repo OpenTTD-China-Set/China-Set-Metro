@@ -1,6 +1,6 @@
 ##grflangid 0x01
 
-STR_GRF_NAME                                                    :China Set: Metros 0.12
+STR_GRF_NAME                                                    :China Set: Metros 0.13
 STR_GRF_DESC                                                    :{BLACK}CNSM is a collection of Chinese metro vehicles
 STR_GRF_URL                                                     :https://github.com/OpenTTD-China-Set/china-set-metro
 
@@ -27,40 +27,43 @@ STR_DESC_5                                                      :{STRING}{}{STRI
 STR_DESC_6                                                      :{STRING}{}{STRING}{}{STRING}{}{STRING}{}{STRING}{}{STRING}
 STR_DESC_7                                                      :{STRING}{}{STRING}{}{STRING}{}{STRING}{}{STRING}{}{STRING}{}{STRING}
 
-STR_A_WAGON                                                     :{RED}Only A-type wagons can be attatched; maximum: 6 cars
-STR_4A_WAGON                                                    :{RED}Only A-type wagons can be attatched; maximum: 4 cars
-STR_8A_WAGON                                                    :{RED}Only A-type wagons can be attatched; maximum: 8 cars
-STR_B_WAGON                                                     :{RED}Only B-type wagons can be attatched; maximum: 6 cars
+STR_A_WAGON                                                     :{RED}Attatched A-type wagons; Maximum 6 cars
+STR_4A_WAGON                                                    :{RED}Attatched A-type wagons; Maximum 4 cars
+STR_8A_WAGON                                                    :{RED}Attatched A-type wagons; Maximum 8 cars
+STR_B_WAGON                                                     :{RED}Attatched B-type wagons; Maximum 6 cars
 
 STR_LINEB_CAR                                                   :{YELLOW}CNSM MU wagon
-STR_3RD:{GREEN}Third rail cars only
+STR_3RD                                                         :{GREEN}Third rail cars only
+STR_1500V                                                       :{GOLD}Power Supply: {BLUE}1500V DC {LTBLUE}(Overhead Lines)
 
 STR_ATTACH_ALL_CHENGDU_CAR                                      :China Set: Metro Trains
 STR_NAME_CHENGDU_CAR                                            :China package subway car(overhead line)
 STR_NAME_CHENGDU_CAR3                                           :China package subway car(The third track)
 
 
-STR_SFM06                                                       :SFM06train
+
+STR_SFM26                                                       :SFM26train
 STR_SFM32                                                       :SFM32train
 
-STR_NAME_CHENGDU1                                               :Chengdu Metro Line 1 train
-STR_NAME_CHENGDU2                                               :Chengdu Metro Line 2 train
-STR_NAME_CHENGDU3                                               :Chengdu Metro Line 3 train
-STR_NAME_CHENGDU4                                               :Chengdu Metro Line 4 train
-STR_NAME_CHENGDU5                                               :Chengdu Metro Line 5 train
-STR_NAME_CHENGDU6                                               :Chengdu Metro Line 6 train
-STR_NAME_CHENGDU7                                               :Chengdu Metro Line 7 train
-STR_NAME_CHENGDU8                                               :Chengdu Metro Line 8 train
-STR_NAME_CHENGDU9                                               :Chengdu Metro Line 9 train
-STR_NAME_CHENGDU10                                              :Chengdu Metro Line 10 train
-STR_NAME_CHENGDU17                                              :Chengdu Metro Line 17 train
-STR_NAME_CHENGDU18                                              :Chengdu Metro Line 18 train
-STR_NAME_CHENGDU19                                              :Chengdu Metro Line 19 train
+STR_NAME_CHENGDU1_SFM06                                         :Chengdu Metro Line 1 SFM06
+STR_NAME_CHENGDU1                                               :Chengdu Metro Line 1 SFM26/SFM32
+STR_NAME_CHENGDU2                                               :Chengdu Metro Line 2 Train
+STR_NAME_CHENGDU3                                               :Chengdu Metro Line 3 Train
+STR_NAME_CHENGDU4                                               :Chengdu Metro Line 4 Train
+STR_NAME_CHENGDU5                                               :Chengdu Metro Line 5 Train
+STR_NAME_CHENGDU6                                               :Chengdu Metro Line 6 Train
+STR_NAME_CHENGDU7                                               :Chengdu Metro Line 7 Train
+STR_NAME_CHENGDU8                                               :Chengdu Metro Line 8 Train
+STR_NAME_CHENGDU9                                               :Chengdu Metro Line 9 Train
+STR_NAME_CHENGDU10                                              :Chengdu Metro Line 10 Train
+STR_NAME_CHENGDU17                                              :Chengdu Metro Line 17 Train
+STR_NAME_CHENGDU18                                              :Chengdu Metro Line 18 Train
+STR_NAME_CHENGDU19                                              :Chengdu Metro Line 19 Train
 
 STR_HONGBAI                                                     :Red and white livery
 STR_LANBAI                                                      :Blue and white livery
 STR_LINE17                                                      :Some trains will be used on Line 18
 
 STR_BEIJING                                                     :Beijing Metro
-STR_NAME_BEIJING1                                               :Beijing Metro Line 1 train
-STR_NAME_BEIJING2                                               :Beijing Metro Line 2 train
+STR_NAME_BEIJING1                                               :Beijing Metro Line 1 Train DZK4
+STR_NAME_BEIJING2                                               :Beijing Metro Line 2 Train DZK16

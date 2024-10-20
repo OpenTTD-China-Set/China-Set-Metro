@@ -55,7 +55,7 @@ switch (FEAT_TRAINS, SELF, switch_chengdu2_graphics,position_in_consist){
 
 /*
 switch (FEAT_TRAINS, SELF, switch_chengdu241_graphics,position_in_consist){
-    4: spriteset_chengdu2_p;  
+    4: spriteset_chengdu2_p;
     7: spriteset_chengdu2_m;
     10:spriteset_chengdu2_m;
     13:spriteset_chengdu2_pr;
@@ -108,8 +108,8 @@ item (FEAT_TRAINS, chengdu2) {
         sprite_id:                      SPRITE_ID_NEW_TRAIN;
         misc_flags:                     bitmask(TRAIN_FLAG_AUTOREFIT, TRAIN_FLAG_MU);
         engine_class:                   ENGINE_CLASS_ELECTRIC;
-         variant_group:					10010;
-                
+         variant_group:					10011;
+
         // Availability
         climates_available:             ALL_CLIMATES;
         introduction_date:              date(2012,09,16);
@@ -150,7 +150,7 @@ item (FEAT_TRAINS, chengdu2) {
         purchase:                       spriteset_chengdu2_original;
         articulated_part:               switch_chengdu2_articulated_part;
         name:                           switch_chengdu2_name;
-        
+
         // Stats
         length:                         switch_length_2_5_2;
         speed:                          80;

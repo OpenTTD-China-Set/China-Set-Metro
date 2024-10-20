@@ -1,6 +1,7 @@
 item (FEAT_TRAINS, chengdu_car_ab, 10001) {}
 item (FEAT_TRAINS, chengdu_car_ab3, 10002) {}
 item (FEAT_TRAINS, chengdu1, 10010) {}
+item (FEAT_TRAINS, chengdu1_sfm06, 10011) {}
 item (FEAT_TRAINS, chengdu2, 10020) {}
 item (FEAT_TRAINS, chengdu3, 10030) {}
 item (FEAT_TRAINS, chengdu4, 10040) {}
@@ -15,3 +16,24 @@ item (FEAT_TRAINS, chengdu18, 10056) {}
 item (FEAT_TRAINS, chengdu19, 10057) {}
 item (FEAT_TRAINS, beijing1, 11000) {}
 item (FEAT_TRAINS, beijing2, 11001) {}
+
+sort (FEAT_TRAINS, [
+    10001,
+    10002,
+    beijing1,
+    beijing2,
+    chengdu1_sfm06,
+    chengdu1,
+    chengdu2,
+    chengdu3,
+    chengdu4,
+    chengdu5,
+    chengdu6,
+    chengdu7,
+    chengdu8,
+    chengdu9,
+    chengdu10,
+    chengdu17,
+    chengdu18,
+]);
+
