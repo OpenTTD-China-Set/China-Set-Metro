@@ -9,11 +9,11 @@ spriteset (spriteset_chengdu_car_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
 }
 
 switch (FEAT_TRAINS, SELF, switch_chengdu_car_articulated_part, extra_callback_info1) {
-    1..2: return chengdu_car_ab;
+    1..2: return metro_car_elec;
     return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 switch (FEAT_TRAINS, SELF, switch_chengdu_car3_articulated_part, extra_callback_info1) {
-    1..2: return chengdu_car_ab3;
+    1..2: return metro_car_3rd;
     return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
@@ -32,10 +32,10 @@ switch (FEAT_TRAINS, SELF, switch_chengdu_car3_graphics, position_in_articulated
 
 
 
-item (FEAT_TRAINS,chengdu_car_ab) {
+item (FEAT_TRAINS,metro_car_elec) {
     property {
         // Menu
-        name:                           string(STR_NAME_CHENGDU_CAR);
+        name:                           string(STR_NAME_CAR);
         sprite_id:                      SPRITE_ID_NEW_TRAIN;
 
         // Availability
@@ -68,7 +68,7 @@ item (FEAT_TRAINS,chengdu_car_ab) {
     }
     graphics {
         // Menu
-        additional_text:                string(STR_DESC_2,string(STR_ATTACH_ALL_CHENGDU_CAR),string(STR_LINEB_CAR));
+        additional_text:                string(STR_DESC_2,string(STR_ATTACH_ELECTRIC),string(STR_LINEB_CAR));
         can_attach_wagon:               AB;
 
         // Graphics
@@ -88,10 +88,10 @@ item (FEAT_TRAINS,chengdu_car_ab) {
 
     }
 }
-item (FEAT_TRAINS,chengdu_car_ab3) {
+item (FEAT_TRAINS,metro_car_3rd) {
     property {
         // Menu
-        name:                           string(STR_NAME_CHENGDU_CAR3);
+        name:                           string(STR_NAME_CAR3);
         sprite_id:                      SPRITE_ID_NEW_TRAIN;
 
         // Availability
@@ -124,7 +124,7 @@ item (FEAT_TRAINS,chengdu_car_ab3) {
     }
     graphics {
         // Menu
-        additional_text:                string(STR_DESC_2,string(STR_ATTACH_ALL_CHENGDU_CAR),string(STR_LINEB_CAR));
+        additional_text:                string(STR_DESC_2,string(STR_ATTACH_3RD),string(STR_LINEB_CAR));
         can_attach_wagon:               AB;
 
         // Graphics

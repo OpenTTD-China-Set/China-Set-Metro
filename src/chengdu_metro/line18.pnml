@@ -1,9 +1,5 @@
 //18号线
 //折叠列表
-switch (FEAT_TRAINS, SELF, switch_chengdu18_name, getbits(extra_callback_info1, 0, 8) == 0x20? getbits(extra_callback_info1, 8, 8) : 0xFFFF) {
-    0: return string(STR_ATTACH_ALL_CHENGDU_CAR);
-    return CB_RESULT_NO_TEXT;
-}
 
 spriteset (spriteset_chengdu18_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_purchase ("chengdu_metro", "chengdu18-c")
@@ -72,7 +68,10 @@ switch (FEAT_TRAINS, SELF, switch_chengdu18_cab, cargo_subtype) {
 
 
 //编组
-
+switch (FEAT_TRAINS, SELF, switch_chengdu18_graphics_front, position_in_articulated_veh % 3) {
+    1: switch_chengdu18_front;
+    empty_sprites;
+}
 
 
 switch (FEAT_TRAINS, SELF, switch_chengdu1819_graphics, position_in_articulated_veh % 3) {
@@ -125,13 +124,17 @@ switch (FEAT_TRAINS, SELF, switch_chengdu18_graphics, num_vehs_in_consist) {
 }
 */
 //载客
+switch (FEAT_TRAINS, SELF, switch_chengdu18_capacity_front, position_in_articulated_veh % 3) {
+    1: return 265;
+    return 0;
+}
 
 switch (FEAT_TRAINS, SELF, switch_chengdu1840_capacity,position_in_consist_from_end){
-    1: return 280;
-    return 300;
+    1: return 265;
+    return 280;
 }
 switch (FEAT_TRAINS, SELF, switch_chengdu1820_capacity,position_in_consist){
-    1: return 280;
+    1: return 265;
     switch_chengdu1840_capacity;
 }
 switch (FEAT_TRAINS, SELF, switch_chengdu18_capacity, position_in_articulated_veh % 3) {
@@ -153,7 +156,7 @@ item (FEAT_TRAINS, chengdu18) {
         sprite_id:                      SPRITE_ID_NEW_TRAIN;
         misc_flags:                     bitmask(TRAIN_FLAG_AUTOREFIT, TRAIN_FLAG_MU);
         engine_class:                   ENGINE_CLASS_ELECTRIC;
-        variant_group:					10011;
+        variant_group:					chengdu1_sfm06;
 
 
         // Availability
@@ -162,7 +165,7 @@ item (FEAT_TRAINS, chengdu18) {
         model_life:                     60;
         retire_early:                   35;
         vehicle_life:                   35;
-        track_type:                     SABd;
+        track_type:                     SABA;
 
         // Cargo
         refittable_cargo_classes:       bitmask(CC_PASSENGERS);
@@ -188,14 +191,14 @@ item (FEAT_TRAINS, chengdu18) {
     }
     graphics {
         // Menu
-        additional_text:                string(STR_DESC_2,string(STR_CHENGDU_CAN_ATTACH_WAGON),string(STR_8A_WAGON));
+        additional_text:                string(STR_DESC_2,string(STR_ATTACH_ELECTRIC),string(STR_8A_WAGON));
         can_attach_wagon:               AB;
-        start_stop:                     mu2to8car;
+        start_stop:                     mu3to12car;
         // Graphics
-        default:                        switch_chengdu18_graphics;
+        default:                        switch_chengdu18_graphics_front;
         purchase:                       spriteset_chengdu18_original;
         articulated_part:               switch_chengdu18_articulated_part;
-        name:                           switch_chengdu18_name;
+        name:                           switch_chengdu_name;
         cargo_subtype_text:             switch_chengdu18_subtype;
 
 
@@ -204,13 +207,14 @@ item (FEAT_TRAINS, chengdu18) {
         speed:                          140;
         tractive_effort_coefficient:    return 0;
         purchase_tractive_effort_coefficient: return int(0.191*255);
-        cargo_capacity:                 300/3;
+        purchase_cargo_capacity:        265/3;
+        cargo_capacity:                 switch_chengdu18_capacity_front;
         cargo_age_period:               140;
         cost_factor:                    36;
         purchase_running_cost_factor:   36;
     }
        // Multiple Unit Wagons
-    livery_override(chengdu_car_ab) {
+    livery_override(metro_car_elec) {
         default:                        switch_chengdu18_graphics;
         cargo_capacity:                 switch_chengdu18_capacity;
         power:                          160;

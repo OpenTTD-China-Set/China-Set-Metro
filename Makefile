@@ -1,5 +1,11 @@
 # THIS MAKEFILE REQUIRES SH TO RUN
 
+# tools
+PYTHON ?= python3
+# lang
+LANG_SCRIPT ?= ./str-csv.py
+LANG_SRC    ?= lang/str.csv
+
 # preprocess and compile commands
 CMD_PREPROCESS := gcc -E -x c
 CMD_COMPILE    := nmlc -c -o china-set-metro.grf
@@ -29,14 +35,19 @@ PNG := $(PNG_8BPP) $(PNG_MASK) $(PNG_32BPP)
 	echo "Rendering $<, using manifest $$MANIFEST" and palette $$PALETTE; \
 	$(CMD_RENDER) -manifest $$MANIFEST -palette $$PALETTE -input $<
 
-.PHONY: all render preprocess compile
+.PHONY: all render preprocess compile lang clean
 
-all: render preprocess compile
+all: render preprocess lang compile
 	@echo "========== All tasks complete =========="
 
 # default target, renders all voxel models in this repo
 render: $(PNG)
 	@echo "========== Rendering complete =========="
+
+# lang
+lang: $(LANG_SRC)
+	@echo "========== Generating lang files =========="
+	@$(PYTHON) $(LANG_SCRIPT) $(LANG_SRC)
 
 # don't put anything at the root!
 SECONDARY_PNML := $(shell find src/*/ -name "*.pnml")

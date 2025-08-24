@@ -1,4 +1,5 @@
-//长度限制，对于6b车
+//长度限制
+//对于6b车
 switch (FEAT_TRAINS, SELF, mu2to6car, (num_vehs_in_consist < 6) || (num_vehs_in_consist > 18)) {
     1: return string(STR_MUST_BE_2_TO_6_CARS);
     return CB_RESULT_NO_TEXT;
@@ -6,6 +7,11 @@ switch (FEAT_TRAINS, SELF, mu2to6car, (num_vehs_in_consist < 6) || (num_vehs_in_
 //对于8编组
 switch (FEAT_TRAINS, SELF, mu2to8car, (num_vehs_in_consist < 6) || (num_vehs_in_consist > 24)) {
     1: return string(STR_MUST_BE_2_TO_8_CARS);
+    return CB_RESULT_NO_TEXT;
+}
+//3to12
+switch (FEAT_TRAINS, SELF, mu3to12car, (num_vehs_in_consist < 9) || (num_vehs_in_consist > 36)) {
+    1: return string(STR_MUST_BE_3_TO_12_CARS);
     return CB_RESULT_NO_TEXT;
 }
 
@@ -18,15 +24,28 @@ switch (FEAT_TRAINS, SELF, switch_length_2_7_2, position_in_articulated_veh % 3)
     1: return 7;
     return 2;
 }
+switch (FEAT_TRAINS, SELF, switch_length_2_8_2, position_in_articulated_veh % 3) {
+    1: return 8;
+    return 2;
+}
 
 //id对应下边可以搭载的车厢
+switch (FEAT_TRAINS, SELF, onlyallowcst, grfid) {
+    str2number("\5F\5F\03\05"): return CB_RESULT_ATTACH_ALLOW_IF_RAILTYPES;
+    return CB_RESULT_ATTACH_DISALLOW;
+}
+
+switch (FEAT_TRAINS, SELF, onlydisallowcst, grfid) {
+    str2number("\5F\5F\03\05"): return CB_RESULT_ATTACH_DISALLOW;
+    return CB_RESULT_ATTACH_ALLOW_IF_RAILTYPES;
+}
 
 switch (FEAT_TRAINS, SELF, AB, vehicle_type_id) {
-    10001: return CB_RESULT_ATTACH_ALLOW_IF_RAILTYPES;
+    1001: return onlyallowcst;
     return CB_RESULT_ATTACH_DISALLOW;
 }
 switch (FEAT_TRAINS, SELF, AB3, vehicle_type_id) {
-    10002: return CB_RESULT_ATTACH_ALLOW_IF_RAILTYPES;
+    1002: return onlyallowcst;
     return CB_RESULT_ATTACH_DISALLOW;
 }
 
@@ -45,4 +64,16 @@ switch (FEAT_TRAINS, PARENT, accostfactor, hasbit(bitmask_consist_info, 2)) {
 switch (FEAT_TRAINS, PARENT, cafedecayfactor, hasbit(bitmask_consist_info, 1)) {
     1: return 5;
     return 4;
+}
+
+//折叠菜单
+
+switch (FEAT_TRAINS, SELF, switch_beijing_name, getbits(extra_callback_info1, 0, 8) == 0x20? getbits(extra_callback_info1, 8, 8) : 0xFFFF) {
+    0: return string(STR_BEIJING);
+    return CB_RESULT_NO_TEXT;
+}
+
+switch (FEAT_TRAINS, SELF, switch_guangzhou_name, getbits(extra_callback_info1, 0, 8) == 0x20? getbits(extra_callback_info1, 8, 8) : 0xFFFF) {
+    0: return string(STR_GUANGZHOU);
+    return CB_RESULT_NO_TEXT;
 }

@@ -1,0 +1,156 @@
+//广州A6
+
+spriteset (spriteset_guangzhou_a6_purchase, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_purchase ("guangzhou_metro", "guangzhou-a6-c")
+}
+// Vehicle
+spriteset (spriteset_guangzhou_a6_c, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_standard ("guangzhou_metro", "guangzhou-a6-c")
+}
+spriteset (spriteset_guangzhou_a6_c_r, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_reversed_11 ("guangzhou_metro", "guangzhou-a6-c")
+}
+spriteset (spriteset_guangzhou_a6_m, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_standard ("guangzhou_metro", "guangzhou-a6-m")
+}
+spriteset (spriteset_guangzhou_a6_mp_1, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_standard ("guangzhou_metro", "guangzhou-a6-mp-1")
+}
+spriteset (spriteset_guangzhou_a6_mp_2, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_reversed_11 ("guangzhou_metro", "guangzhou-a6-mp-2")
+}
+
+
+switch (FEAT_TRAINS, SELF, switch_guangzhou_a6_articulated_part, extra_callback_info1) {
+    1..2: return guangzhou_a6;
+    return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+
+
+
+//编组
+switch (FEAT_TRAINS, SELF, switch_guangzhou_a6_graphics_front, position_in_articulated_veh % 3){
+    1: spriteset_guangzhou_a6_c;
+    empty_sprites;
+}
+
+switch (FEAT_TRAINS, SELF, switch_guangzhou_a6_graphics_mp_front, position_in_vehid_chain / 3 + 1){
+    1: spriteset_guangzhou_a6_mp_1;
+    spriteset_guangzhou_a6_m;
+}
+switch (FEAT_TRAINS, SELF, switch_guangzhou_a6_graphics_cab, position_in_vehid_chain_from_end / 3 + 1){
+    1: spriteset_guangzhou_a6_c_r;
+    2: spriteset_guangzhou_a6_mp_2;
+    switch_guangzhou_a6_graphics_mp_front;
+}
+switch (FEAT_TRAINS, SELF, switch_guangzhou_a6_graphics, position_in_articulated_veh % 3){
+    1: switch_guangzhou_a6_graphics_cab;
+    empty_sprites;
+}
+
+
+//载客
+switch (FEAT_TRAINS, SELF, switch_guangzhou_a6_capacity, position_in_articulated_veh % 3) {
+    1: return 310;
+    return 0;
+}
+
+//动力
+switch (FEAT_TRAINS, SELF, switch_guangzhou_a6_weight, position_in_vehid_chain_from_end / 3 + 1) {
+    1: return 33;
+    return 36;
+}
+
+switch (FEAT_TRAINS, SELF, switch_guangzhou_a6_power, position_in_vehid_chain_from_end / 3 + 1) {
+    1: return 0;
+    return 1019;//760kw per m
+}
+
+switch (FEAT_TRAINS, SELF, switch_guangzhou_a6_traction, vehicle_is_potentially_powered) {
+    1: return int(0.149*255);
+    return 0;
+}
+
+
+//属性
+item (FEAT_TRAINS, guangzhou_a6) {
+    property {
+        // Menu
+        name:                           string(STR_NAME_GUANGZHOU_A6);
+        sprite_id:                      SPRITE_ID_NEW_TRAIN;
+        misc_flags:                     bitmask(TRAIN_FLAG_AUTOREFIT, TRAIN_FLAG_MU);
+        engine_class:                   ENGINE_CLASS_ELECTRIC;
+        variant_group:					guangzhou_a1;
+
+
+        // Availability
+        climates_available:             ALL_CLIMATES;
+        introduction_date:              date(2018,09,10);
+        model_life:                     80;
+        retire_early:                   50;
+        vehicle_life:                   40;
+        track_type:                     SABd;
+
+        // Cargo
+        refittable_cargo_classes:       bitmask(CC_PASSENGERS);
+        non_refittable_cargo_classes:   0;
+        cargo_allow_refit:              [PASS, TOUR, YETI, YETY];
+        cargo_disallow_refit:           [];
+        refit_cost:                     0;
+        default_cargo_type:             PASS;
+        ai_special_flag:                AI_FLAG_PASSENGER;
+        cargo_capacity:                 1;
+        loading_speed:                  70;
+        cargo_age_period:               120;
+
+        // Stats
+        speed:                          80 km/h;
+        power:                          880 kW;
+        weight:                         35 ton;
+        tractive_effort_coefficient:    0.149;
+        cost_factor:                    28;
+        running_cost_base:              RUNNING_COST_ELECTRIC;
+        running_cost_factor:            12;
+        reliability_decay:              10;
+    }
+    graphics {
+        // Menu
+        additional_text:                string(STR_DESC_6, string(STR_USEDLINE_GZ_A6), string(STR_ELECTRIC_1500VDC), string(STR_6A_WAGON), string(STR_COMFORT_LOW, 140), string(STR_RELDEC_LOW));
+        can_attach_wagon:               AB;
+        start_stop:                     mu3to12car;
+        // Graphics
+        default:                        switch_guangzhou_a6_graphics_front;
+        purchase:                       spriteset_guangzhou_a6_purchase;
+        articulated_part:               switch_guangzhou_a6_articulated_part;
+        name:                           switch_guangzhou_name;
+
+
+        // Stats
+        length:                         switch_length_2_7_2;
+        cargo_capacity:                 switch_guangzhou_a6_capacity;
+        speed:                          80;
+        power:                          return 0;
+        purchase_power:                 return 4077; // HPI
+        tractive_effort_coefficient:    return 0;
+        purchase_tractive_effort_coefficient: return int(0.694*255);
+        purchase_cargo_capacity:        310/3;
+        cargo_age_period:               140;
+        cost_factor:                    24;
+        purchase_running_cost_factor:   22;
+        running_cost_factor:            22;
+    }
+       // Multiple Unit Wagons
+    livery_override(metro_car_elec) {
+        default:                        switch_guangzhou_a6_graphics;
+        cargo_capacity:                 switch_guangzhou_a6_capacity;
+        power:                          switch_guangzhou_a6_power;
+        tractive_effort_coefficient:    switch_guangzhou_a6_traction;
+        length:                         switch_length_2_7_2;
+        weight:                         switch_guangzhou_a6_weight;
+        can_attach_wagon:               AB;
+        cargo_age_period:               140;
+        bitmask_vehicle_info:           0;
+        articulated_part:               switch_chengdu_car_articulated_part;
+    }
+}

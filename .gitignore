@@ -2,3 +2,6 @@
 *.grf
 *.nml
 gfx/**/*.png
+lang/english.lng
+lang/simplified_chinese.lng
+

@@ -1,27 +1,43 @@
-item (FEAT_TRAINS, chengdu_car_ab, 10001) {}
-item (FEAT_TRAINS, chengdu_car_ab3, 10002) {}
-item (FEAT_TRAINS, chengdu1, 10010) {}
-item (FEAT_TRAINS, chengdu1_sfm06, 10011) {}
-item (FEAT_TRAINS, chengdu2, 10020) {}
-item (FEAT_TRAINS, chengdu3, 10030) {}
-item (FEAT_TRAINS, chengdu4, 10040) {}
-item (FEAT_TRAINS, chengdu5, 10050) {}
-item (FEAT_TRAINS, chengdu6, 10051) {}
-item (FEAT_TRAINS, chengdu7, 10070) {}
-item (FEAT_TRAINS, chengdu8, 10052) {}
-item (FEAT_TRAINS, chengdu9, 10053) {}
-item (FEAT_TRAINS, chengdu10, 10054) {}
-item (FEAT_TRAINS, chengdu17, 10055) {}
-item (FEAT_TRAINS, chengdu18, 10056) {}
-item (FEAT_TRAINS, chengdu19, 10057) {}
-item (FEAT_TRAINS, beijing1, 11000) {}
-item (FEAT_TRAINS, beijing2, 11001) {}
+//车厢
+item (FEAT_TRAINS, metro_car_elec, 1001) {}
+item (FEAT_TRAINS, metro_car_3rd, 1002) {}
+item (FEAT_TRAINS, metro_1st_car_elec, 1003) {}
+//北京 11xx-12xx
+item (FEAT_TRAINS, beijing1, 1101) {}
+item (FEAT_TRAINS, beijing2, 1102) {}
+//上海 13xx-14xx
+//广州&佛山 15xx-16xx
+item (FEAT_TRAINS, guangzhou_a1, 1501) {}
+item (FEAT_TRAINS, guangzhou_a2, 1502) {}
+item (FEAT_TRAINS, guangzhou_a4, 1503) {}
+item (FEAT_TRAINS, guangzhou_a6, 1504) {}
+//深圳&东莞 17xx-18xx
+//成都 19xx
+item (FEAT_TRAINS, chengdu1, 1900) {}
+item (FEAT_TRAINS, chengdu1_sfm06, 1901) {}
+item (FEAT_TRAINS, chengdu2, 1902) {}
+item (FEAT_TRAINS, chengdu3, 1903) {}
+item (FEAT_TRAINS, chengdu4, 1904) {}
+item (FEAT_TRAINS, chengdu5, 1905) {}
+item (FEAT_TRAINS, chengdu6, 1906) {}
+item (FEAT_TRAINS, chengdu7, 1907) {}
+item (FEAT_TRAINS, chengdu8, 1908) {}
+item (FEAT_TRAINS, chengdu9, 1909) {}
+item (FEAT_TRAINS, chengdu10, 1910) {}
+item (FEAT_TRAINS, chengdu17, 1917) {}
+item (FEAT_TRAINS, chengdu18, 1918) {}
+item (FEAT_TRAINS, chengdu19, 1919) {}
+
 
 sort (FEAT_TRAINS, [
-    10001,
-    10002,
+    1001,
+    1002,
     beijing1,
     beijing2,
+    guangzhou_a1,
+    guangzhou_a2,
+    guangzhou_a4,
+    guangzhou_a6,
     chengdu1_sfm06,
     chengdu1,
     chengdu2,
