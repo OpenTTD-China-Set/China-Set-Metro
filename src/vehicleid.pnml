@@ -32,6 +32,7 @@ item (FEAT_TRAINS, chengdu19, 1919) {}
 sort (FEAT_TRAINS, [
     1001,
     1002,
+    1003,
     beijing1,
     beijing2,
     guangzhou_a1,

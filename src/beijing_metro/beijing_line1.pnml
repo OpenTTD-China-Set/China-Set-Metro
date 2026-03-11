@@ -48,7 +48,7 @@ switch (FEAT_TRAINS, SELF, switch_beijing1_graphics,position_in_consist){
 //载客
 switch (FEAT_TRAINS, SELF, switch_beijing1_capacity_front, position_in_articulated_veh % 3){
     1: return 230;
-    return 250;
+    return 0;
 }
 
 switch (FEAT_TRAINS, SELF, switch_beijing140_capacity,position_in_consist_from_end){
@@ -129,7 +129,7 @@ item (FEAT_TRAINS, beijing1) {
         purchase_tractive_effort_coefficient: return int(0.131*255);
         cargo_capacity:                 switch_beijing1_capacity_front;
         purchase_cargo_capacity:        230/3;
-        cargo_age_period:               140;
+        cargo_age_period:               128;
         cost_factor:                    21;
         purchase_running_cost_factor:   21;
     }
@@ -142,7 +142,7 @@ item (FEAT_TRAINS, beijing1) {
         length:                         switch_length_2_5_2;
         weight:                         return 30;
         can_attach_wagon:               AB3;
-        cargo_age_period:               140;
+        cargo_age_period:               128;
         bitmask_vehicle_info:           0;
         articulated_part:               switch_chengdu_car_articulated_part;
         cost_factor:                    21;

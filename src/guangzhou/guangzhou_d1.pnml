@@ -1,0 +1,217 @@
+//18号线
+//折叠列表
+
+spriteset (spriteset_guangzhou_d1_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_purchase ("guangzhou_metro", "guangzhou-d1-c")
+}
+// Vehicle
+spriteset (spriteset_guangzhou_d1_c_front, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_standard ("guangzhou_metro", "guangzhou-d1-c")
+}
+spriteset (spriteset_guangzhou_d1_p, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_standard ("guangzhou_metro", "guangzhou-d1-mp-1")
+}
+spriteset (spriteset_guangzhou_d1_m, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_standard ("guangzhou_metro", "guangzhou-d1-m")
+}
+spriteset (spriteset_guangzhou_d1_pr, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_reversed ("guangzhou_metro", "guangzhou-d1-mp-2")
+}
+spriteset (spriteset_guangzhou_d1_cab, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_reversed ("guangzhou_metro", "guangzhou-d1-c")
+}
+
+spriteset (spriteset_guangzhou_d2_c_front, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_standard ("guangzhou_metro", "guangzhou-d2-c")
+}
+spriteset (spriteset_guangzhou_d2_p, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_standard ("guangzhou_metro", "guangzhou-d2-mp-1")
+}
+spriteset (spriteset_guangzhou_d2_m, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_standard ("guangzhou_metro", "guangzhou-d2-m")
+}
+spriteset (spriteset_guangzhou_d2_pr, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_reversed ("guangzhou_metro", "guangzhou-d2-mp-2")
+}
+spriteset (spriteset_guangzhou_d2_cab, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_reversed ("guangzhou_metro", "guangzhou-d2-c")
+}
+switch (FEAT_TRAINS, SELF, switch_guangzhou_d1_articulated_part, extra_callback_info1) {
+    1..2: return guangzhou_d1;
+    return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+//改装
+switch (FEAT_TRAINS, SELF, switch_guangzhou_d1_subtype, cargo_subtype) {
+    0: return string(STR_D1_BLUE);
+    1: return string(STR_D2_ORANGE);
+    return CB_RESULT_NO_TEXT;
+}
+switch (FEAT_TRAINS, SELF, switch_guangzhou_d1_front, cargo_subtype) {
+   0: spriteset_guangzhou_d1_c_front;
+   1: spriteset_guangzhou_d2_c_front;
+}
+switch (FEAT_TRAINS, SELF, switch_guangzhou_d1_m, cargo_subtype) {
+   0: spriteset_guangzhou_d1_m;
+   1: spriteset_guangzhou_d2_m;
+}
+switch (FEAT_TRAINS, SELF, switch_guangzhou_d1_p, cargo_subtype) {
+   0: spriteset_guangzhou_d1_p;
+   1: spriteset_guangzhou_d2_p;
+}
+switch (FEAT_TRAINS, SELF, switch_guangzhou_d1_pr, cargo_subtype) {
+   0: spriteset_guangzhou_d1_pr;
+   1: spriteset_guangzhou_d2_pr;
+}
+switch (FEAT_TRAINS, SELF, switch_guangzhou_d1_cab, cargo_subtype) {
+   0: spriteset_guangzhou_d1_cab;
+   1: spriteset_guangzhou_d2_cab;
+}
+
+
+//编组
+switch (FEAT_TRAINS, SELF, switch_guangzhou_d1_graphics_front, position_in_articulated_veh % 3) {
+    1: switch_guangzhou_d1_front;
+    empty_sprites;
+}
+
+switch (FEAT_TRAINS, SELF, switch_guangzhou_d1_graphics_pr,position_in_consist_from_end / 3){
+    1: switch_guangzhou_d1_pr;
+    switch_guangzhou_d1_m;
+}
+switch (FEAT_TRAINS, SELF, switch_guangzhou_d1_graphics_p,position_in_consist / 3){
+    1: switch_guangzhou_d1_p;
+    switch_guangzhou_d1_graphics_pr;
+}
+switch (FEAT_TRAINS, SELF, switch_guangzhou_d1_graphics_end,position_in_consist_from_end / 3){
+    0: switch_guangzhou_d1_cab;
+    switch_guangzhou_d1_graphics_p;
+}
+switch (FEAT_TRAINS, SELF, switch_guangzhou_d1_graphics,position_in_articulated_veh % 3){
+    1: switch_guangzhou_d1_graphics_end;
+    empty_sprites;
+}
+
+
+//载客
+switch (FEAT_TRAINS, SELF, switch_guangzhou_d1_capacity_front, position_in_articulated_veh % 3) {
+    1: return 195;
+    return 0;
+}
+
+
+switch (FEAT_TRAINS, SELF, switch_guangzhou_d1_business_capacity, position_in_articulated_veh % 3) {
+    1: return 32;
+    return 0;
+}
+switch (FEAT_TRAINS, SELF, switch_guangzhou_d1_capacity_cap,position_in_consist_from_end / 3){
+    1: return 228;
+    return 195;
+}
+switch (FEAT_TRAINS, SELF, switch_guangzhou_d1_capacity, position_in_articulated_veh % 3) {
+    1: switch_guangzhou_d1_capacity_cap;
+    return 0;
+}
+
+switch (FEAT_TRAINS, SELF, switch_guangzhou_d1_traction, vehicle_is_potentially_powered) {
+    1: return int(0.102*255);
+    return 0;
+}
+
+
+
+switch (FEAT_TRAINS, SELF, switch_guangzhou_d1_power_p,(position_in_consist / 3 == 1) || (position_in_consist_from_end / 3 == 1) ){
+    1: return 0;
+    return 1609;
+}
+
+
+item (FEAT_TRAINS, guangzhou_d1) {
+    property {
+        // Menu
+        name:                           string(STR_NAME_GUANGZHOU_D1);
+        sprite_id:                      SPRITE_ID_NEW_TRAIN;
+        misc_flags:                     bitmask(TRAIN_FLAG_AUTOREFIT, TRAIN_FLAG_MU);
+        engine_class:                   ENGINE_CLASS_ELECTRIC;
+        variant_group:					guangzhou_a1;
+
+
+        // Availability
+        climates_available:             ALL_CLIMATES;
+        introduction_date:              date(2021,09,28);
+        model_life:                     60;
+        retire_early:                   35;
+        vehicle_life:                   35;
+        track_type:                     SABA;
+
+        // Cargo
+        refittable_cargo_classes:       bitmask(CC_PASSENGERS);
+        non_refittable_cargo_classes:   0;
+        cargo_allow_refit:              [PASS, TOUR, YETI, YETY];
+        cargo_disallow_refit:           [];
+        refit_cost:                     0;
+        default_cargo_type:             PASS;
+        ai_special_flag:                AI_FLAG_PASSENGER;
+        cargo_capacity:                 1;
+        loading_speed:                  70;
+        cargo_age_period:               160;
+
+        // Stats
+        speed:                          160 km/h;
+        power:                          1200 kW;
+        weight:                         58 ton;
+        tractive_effort_coefficient:    0.102;
+        cost_factor:                    30;
+        running_cost_base:              RUNNING_COST_ELECTRIC;
+        running_cost_factor:            9;
+        reliability_decay:              10;
+    }
+    graphics {
+        // Menu
+        additional_text:                string(STR_DESC_2,string(STR_ATTACH_ELECTRIC),string(STR_8A_WAGON));
+        can_attach_wagon:               sw_business;
+        start_stop:                     mu3to12car;
+        // Graphics
+        default:                        switch_guangzhou_d1_graphics_front;
+        purchase:                       spriteset_guangzhou_d1_original;
+        articulated_part:               switch_guangzhou_d1_articulated_part;
+        name:                           switch_guangzhou_name;
+        cargo_subtype_text:             switch_guangzhou_d1_subtype;
+
+
+        // Stats
+        length:                         switch_length_2_7_2;
+        speed:                          160;
+        tractive_effort_coefficient:    return 0;
+        purchase_tractive_effort_coefficient: return int(0.191*255);
+        purchase_cargo_capacity:        265/3;
+        cargo_capacity:                 switch_guangzhou_d1_capacity_front;
+        cargo_age_period:               128;
+        cost_factor:                    36;
+        purchase_running_cost_factor:   36;
+    }
+       // Multiple Unit Wagons
+    livery_override(metro_car_elec) {
+        default:                        switch_guangzhou_d1_graphics;
+        cargo_capacity:                 switch_guangzhou_d1_capacity;
+        power:                          switch_guangzhou_d1_power_p;
+        tractive_effort_coefficient:    switch_guangzhou_d1_traction;
+        length:                         switch_length_2_8_2;
+        weight:                         return 58;
+        can_attach_wagon:               AB;
+        cargo_age_period:               160;
+        bitmask_vehicle_info:           0;
+        articulated_part:               switch_chengdu_car_articulated_part;
+    }
+    livery_override(metro_1st_car_elec) {
+        default:                        switch_guangzhou_d1_graphics;
+        cargo_capacity:                 switch_guangzhou_d1_business_capacity;
+        power:                          switch_guangzhou_d1_power_p;
+        tractive_effort_coefficient:    switch_guangzhou_d1_traction;
+        length:                         switch_length_2_8_2;
+        weight:                         return 58;
+        can_attach_wagon:               AB;
+        cargo_age_period:               240;
+        bitmask_vehicle_info:           0;
+        articulated_part:               switch_chengdu_car_articulated_part;
+    }
+}

@@ -48,6 +48,11 @@ switch (FEAT_TRAINS, SELF, AB3, vehicle_type_id) {
     1002: return onlyallowcst;
     return CB_RESULT_ATTACH_DISALLOW;
 }
+switch (FEAT_TRAINS, SELF, sw_business, vehicle_type_id) {
+    1001: return onlyallowcst;
+    1003: return onlyallowcst;
+    return CB_RESULT_ATTACH_DISALLOW;
+}
 
 
 

@@ -1,5 +1,5 @@
 ﻿#STRING,ENGLISH,SIMPLIFIED CHINESE
-STR_GRF_NAME,China Set: Metros 0.20.0,中国包：地铁 0.20.0
+STR_GRF_NAME,China Set: Metros 0.21.0,中国包：地铁 0.21.0
 STR_GRF_DESC,{BLACK}CNSM is a collection of Chinese metro vehicles,{BLACK}中国地铁车辆合集{}{RED}在更新NewGRF前清注意最低兼容版本！不当更新可能造成存档损坏！
 STR_GRF_URL,//github.com/OpenTTD-China-Set/china-set-metro,
 STR_MUST_BE_2_TO_6_CARS,{RED}Must be 2 to 6 cars,{RED}最少2节最多6节车厢
@@ -30,6 +30,7 @@ STR_3B_WAGON,{GOLD}B-Type Metro Train; 3 cars in standard; can reconnect,{GOLD}�
 STR_6B_WAGON,{GOLD}B-Type Metro Train; 6 cars in standard;,{GOLD}地铁B型列车，标准编组6节
 STR_LINEB_CAR,{YELLOW}CNSM MU wagon,{YELLOW}中国地铁包列车专用车厢
 STR_ATTACH_ELECTRIC,Can Attach overhead line powered Metro Trains,可匹配接触网供电地铁列车
+STR_ATTACH_1ST_ELECTRIC,Can Attach overhead line powered Metro Trains and Business-class Wagon,可匹配接触网供电地铁列车及商务座列车
 STR_ATTACH_3RD,Can Attach 3rd rail powered Metro Trains,可匹配第三轨供电地铁列车
 #Desc,,
 STR_LINE17,Some trains will be used on Line 18,部分列车会在18号线运用
@@ -72,9 +73,11 @@ STR_USEDLINE_GZ_A2,{BLACK}Used Line: Guangzhou Metro {YELLOW}Line 1/{BLUE} Line 
 STR_USEDLINE_GZ_A4,{BLACK}Used Line: Guangzhou Metro {BLUE}Line 2/{LTBLUE} Line 8,{BLACK}使用的线路: 广州地铁{BLUE}2号线、{LTBLUE}8号线
 STR_USEDLINE_GZ_A6,{BLACK}Used Line: Guangzhou Metro {LTBLUE}Line 8,{BLACK}使用的线路: 广州地铁{BLUE}2号线、{LTBLUE}8号线
 STR_USEDLINE_GZ_B1,{BLACK}Used Line: Guangzhou Metro {ORANGE}Line 3,{BLACK}使用的线路: 广州地铁{ORANGE}3号线
-STR_USEDLINE_GZ_D1,{BLACK}Used Line: Guangzhou Metro {BLUE}Line 18/{ORANGE} LIne 22,{BLACK}使用的线路: 广州地铁{BLUE}18号线，{ORANGE}22号线
+STR_USEDLINE_GZ_D1,{BLACK}Used Line: Guangzhou Metro {BLUE}Line 18/{ORANGE} LIne 22,{BLACK}使用的线路: 广州地铁{BLUE}18号线、{ORANGE}22号线
 #Livery,,
 STR_SFM26,SFM26train,SFM26型列车
 STR_SFM32,SFM32train,SFM32型列车
 STR_HONGBAI,Red and white livery,红白涂装
 STR_LANBAI,Blue and white livery,蓝白涂装
+STR_D1_BLUE,{BLUE}Line 18 D1 Train Livery,{BLUE}18号线D1型列车涂装
+STR_D2_ORANGE,{ORANGE}Line 22 D2 Train Livery,{ORANGE}22号线D2型列车涂装
