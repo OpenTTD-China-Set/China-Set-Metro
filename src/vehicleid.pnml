@@ -11,6 +11,7 @@ item (FEAT_TRAINS, guangzhou_a1, 1501) {}
 item (FEAT_TRAINS, guangzhou_a2, 1502) {}
 item (FEAT_TRAINS, guangzhou_a4, 1503) {}
 item (FEAT_TRAINS, guangzhou_a6, 1504) {}
+item (FEAT_TRAINS, guangzhou_d1, 1518) {}
 //深圳&东莞 17xx-18xx
 //成都 19xx
 item (FEAT_TRAINS, chengdu1, 1900) {}
@@ -39,6 +40,7 @@ sort (FEAT_TRAINS, [
     guangzhou_a2,
     guangzhou_a4,
     guangzhou_a6,
+    guangzhou_d1,
     chengdu1_sfm06,
     chengdu1,
     chengdu2,

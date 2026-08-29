@@ -75,6 +75,7 @@ item (FEAT_TRAINS,metro_car_elec) {
         refit_cost:                     0;
         default_cargo_type:             PASS;
         ai_special_flag:                AI_FLAG_PASSENGER;
+        extra_flags:                    bitmask(VEHICLE_FLAG_TRAIN_HAS_CAB);
         cargo_capacity:                 90;                         //depending on the mu这里是无效的？是的
         loading_speed:                  70;
         cargo_age_period:               300;
@@ -131,6 +132,7 @@ item (FEAT_TRAINS,metro_1st_car_elec) {
         refit_cost:                     0;
         default_cargo_type:             PASS;
         ai_special_flag:                AI_FLAG_PASSENGER;
+        extra_flags:                    bitmask(VEHICLE_FLAG_TRAIN_HAS_CAB);
         cargo_capacity:                 90;                         //depending on the mu
         loading_speed:                  70;
         cargo_age_period:               300;
@@ -187,6 +189,7 @@ item (FEAT_TRAINS,metro_car_3rd) {
         refit_cost:                     0;
         default_cargo_type:             PASS;
         ai_special_flag:                AI_FLAG_PASSENGER;
+        extra_flags:                    bitmask(VEHICLE_FLAG_TRAIN_HAS_CAB);
         cargo_capacity:                 90;                         //depending on the mu这里是无效的？
         loading_speed:                  70;
         cargo_age_period:               300;
